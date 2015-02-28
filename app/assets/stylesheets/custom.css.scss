@@ -1,0 +1,82 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$light-gray: #777;
+$orange: #F25204;
+$dark-blue: #093D5E;
+$brown: #9E4D0B;
+$tan: #E7CE9F;
+
+html {
+  background: url(image-path("rio_pajaro.jpg")) no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
+
+body {
+  padding-top: 60px;
+  color: $orange;
+  align-top: center;
+  background-color:rgba(255,255,255,0.5);
+}
+
+.navbar {
+  background: $brown;
+
+  font-size: 1.6em;
+  padding-top: 10px;
+}
+
+a.nav-list-item {
+  color: white !important;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+  background-color: none;
+}
+
+li.active > a
+{
+  color: $tan !important;
+  text-decoration: none;
+  background-color: $brown !important;
+}
+
+.main-body {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.btn {
+  background: #E0AE15;
+  background-image: -webkit-linear-gradient(top, #E0AE15, #E0A035);
+  background-image: -moz-linear-gradient(top, #E0AE15, #E0A035);
+  background-image: -ms-linear-gradient(top, #E0AE15, #E0A035);
+  background-image: -o-linear-gradient(top, #E0AE15, #E0A035);
+  background-image: linear-gradient(to bottom, #E0AE15, #E0A035);
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 6px 10px;
+  margin: 10px 0px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #e07b16;
+  background-image: -webkit-linear-gradient(top, #e07b16, #e36c12);
+  background-image: -moz-linear-gradient(top, #e07b16, #e36c12);
+  background-image: -ms-linear-gradient(top, #e07b16, #e36c12);
+  background-image: -o-linear-gradient(top, #e07b16, #e36c12);
+  background-image: linear-gradient(to bottom, #e07b16, #e36c12);
+  text-decoration: none;
+}
+
+.btn-width{
+    width: 150px;
+}

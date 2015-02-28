@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LaJoya</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>LaJoya</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+    <%= render "layouts/nav_bar" %>
 
-</body>
+    <div class="main-body container">
+
+      <% flash.each do |name, message| %>
+      <div class="<%= bootstrap_class_for(name) %>">
+        <%= message%>
+      </div>
+      <% end %>
+
+    <%= yield %>
+
+    <div>
+  </body>
 </html>
