@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 gem 'aws-sdk', '~> 1'
@@ -53,6 +52,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
   gem 'spring-commands-rspec'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :test do
