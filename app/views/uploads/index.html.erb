@@ -1,6 +1,20 @@
 <h1>All uploads</h1>
-<% @uploads.each do |upload| %>
-    <div>
-        <%= link_to upload.name, upload.url %>
-    </div>
-<% end %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Archivo</th>
+        <th>Significado</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @uploads.each do |upload| %>
+      <tr>
+        <td><%= link_to upload.name, upload.url %></td>
+        <td><%= upload.meaning %></td>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

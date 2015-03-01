@@ -24,9 +24,9 @@ body {
 
 .navbar {
   background: $brown;
-
   font-size: 1.6em;
-  padding-top: 10px;
+  padding-top: 1px;
+  margin-bottom: 0px;
 }
 
 a.nav-list-item {
@@ -79,4 +79,23 @@ li.active > a
 
 .btn-width{
     width: 150px;
+}
+
+li {
+  padding-top: 8px;
+  padding-bottom: 12px;
+}
+#file {
+  color: purple;
+  text-align: center;
+  padding-left: 450px;
+}
+
+th.table-striped {
+  text-align:center;
+  // background-color:rgba(255,255,255,0.5);
+}
+
+th {
+  text-align: center;
 }

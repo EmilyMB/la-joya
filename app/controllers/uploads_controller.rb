@@ -5,7 +5,7 @@ class UploadsController < ApplicationController
   def create
     obj = S3_BUCKET.objects[params[:file].original_filename]
     obj.write(file: params[:file], acl: :public_read)
-    @upload = Upload.new(url: obj.public_url, name: obj.key)
+    @upload = Upload.new(url: obj.public_url, name: obj.key, meaning: params[:meaning])
     if @upload.save
       redirect_to uploads_path, success: "File successfully uploaded"
     else

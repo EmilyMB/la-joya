@@ -1,0 +1,20 @@
+<navbar>
+<%= nav_bar fixed: :top, responsive: true do %>
+  <div class="nav-list">
+    <%= menu_group inline: true do %>
+      <%= menu_item image_tag("goat.jpg", size: "45x45"), root_path, class:"nav-list-item" %></a>
+      <%= menu_item "La Joya", root_path, class:"nav-list-item" %>
+      <%= menu_item "Di", new_upload_path, class:"nav-list-item" %>
+      <%= menu_item "Escucha", uploads_path, class:"nav-list-item" %>
+      <%= menu_item "Advina", new_game_path, class:"nav-list-item" %>
+    <% end %>
+    <%= menu_group pull: :right do %>
+      <% if current_user.nil? %>
+        <%= menu_item "Login", "#", class:"nav-list-item" %>
+      <% else %>
+        <%= menu_item "Logout", logout_path, class:"nav-list-item" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+</navbar>

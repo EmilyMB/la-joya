@@ -2,20 +2,22 @@
 <html>
   <head>
     <title>LaJoya</title>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" %>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
 
-    <%= render "layouts/nav_bar" %>
+    <%= render "layouts/nav_bar" if @disable_nav %>
+    <%= render "layouts/full_nav_bar" unless @disable_nav %>
 
     <div class="main-body container">
 
       <% flash.each do |name, message| %>
-      <div class="<%= bootstrap_class_for(name) %>">
-        <%= message%>
-      </div>
+        <div class="<%= bootstrap_class_for(name) %>">
+          <%= message%>
+        </div>
       <% end %>
 
     <%= yield %>

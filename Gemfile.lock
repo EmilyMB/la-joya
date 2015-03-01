@@ -266,6 +266,7 @@ DEPENDENCIES
   fabrication
   faker
   figaro
+  i18n
   jbuilder (~> 2.0)
   jquery-rails
   launchy
