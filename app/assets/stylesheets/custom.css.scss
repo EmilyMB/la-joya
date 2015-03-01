@@ -48,7 +48,8 @@ a.nav-list-item {
 
 li.active > a
 {
-  color: $tan;
+  color: $tan !important;
+  background-color: $brown !important;
 }
 
 .main-body {
