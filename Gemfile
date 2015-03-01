@@ -54,6 +54,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'capybara'
   gem 'launchy'
+  gem 'figaro'
 end
 
 group :test do
