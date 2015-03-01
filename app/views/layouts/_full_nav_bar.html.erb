@@ -4,13 +4,13 @@
     <%= menu_group inline: true do %>
       <%= menu_item image_tag("goat2.jpg", size: "75x75"), root_path, class:"nav-list-image" %></a>
       <%= menu_item "La Joya", root_path, class:"nav-list-item" %>
+      <%= menu_item "Di", new_upload_path, class:"nav-list-item" %>
+      <%= menu_item "Escucha", uploads_path, class:"nav-list-item" %>
+      <%= menu_item "Advina", new_game_path, class:"nav-list-item" %>
     <% end %>
-
     <%= menu_group pull: :right do %>
       <% if current_user.nil? %>
-        <%= menu_item "Entrar", "#", class:"nav-list-item" %>
-      <% else %>
-        <%= menu_item "Salir", logout_path, class:"nav-list-item" %>
+        <%= menu_item "Salir", root_path, class:"nav-list-item" %>
       <% end %>
     <% end %>
   </div>

@@ -6,6 +6,7 @@ $orange: #F25204;
 $dark-blue: #093D5E;
 $brown: #9E4D0B;
 $tan: #E7CE9F;
+$purple: #800080;
 
 html {
   background: url(image-path("rio_pajaro.jpg")) no-repeat center center fixed;
@@ -22,11 +23,14 @@ body {
   background-color:rgba(255,255,255,0.5);
 }
 
+li {
+  list-style-type: none;
+  padding: 3px 30px 20px 0;
+}
+
 .navbar {
   background: $brown;
-
   font-size: 1.6em;
-  padding-top: 10px;
 }
 
 a.nav-list-item {
@@ -37,11 +41,14 @@ a.nav-list-item {
   background-color: none;
 }
 
+.nav-list-image {
+  margin: -20px;
+  padding: 0;
+}
+
 li.active > a
 {
-  color: $tan !important;
-  text-decoration: none;
-  background-color: $brown !important;
+  color: $tan;
 }
 
 .main-body {
@@ -63,7 +70,7 @@ li.active > a
   color: #ffffff;
   font-size: 20px;
   padding: 6px 10px;
-  margin: 10px 0px;
+  margin: 10px 0;
   text-decoration: none;
 }
 
@@ -78,5 +85,11 @@ li.active > a
 }
 
 .btn-width{
-    width: 150px;
+  width: 150px;
+}
+
+#file {
+  color: $purple;
+  padding-left: 450px;
+  text-align: center;
 }

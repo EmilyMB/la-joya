@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def disable_nav
+    @disable_nav = true
+  end
 end
