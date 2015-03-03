@@ -9,6 +9,9 @@ $tan: #E7CE9F;
 $purple: #800080;
 
 html {
+  font-family: 'Lobster', cursive !important;
+
+  // font-family: 'Noto Sans', sans-serif;
   background: url(image-path("rio_pajaro.jpg")) no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
@@ -20,7 +23,20 @@ body {
   padding-top: 60px;
   color: $orange;
   align-top: center;
-  background-color:rgba(255,255,255,0.5);
+  background-color:rgba(255,255,255,0) !important;
+}
+
+.main-body {
+  padding-top: 40px;
+  text-align: center;
+  // background: blue;
+  width: 110%;
+  padding-right: -15px;
+}
+
+.main-menu {
+  // background-color: purple;
+  padding: 30px;
 }
 
 li {
@@ -36,7 +52,7 @@ li {
 a.nav-list-item {
   color: white !important;
   text-decoration: none;
-  font-family: Arial, sans-serif;
+  // font-family: Arial, sans-serif;
   letter-spacing: 1px;
   background-color: none;
 }
@@ -52,10 +68,6 @@ li.active > a
   background-color: $brown !important;
 }
 
-.main-body {
-  padding-top: 40px;
-  text-align: center;
-}
 
 .btn {
   background: #E0AE15;
@@ -64,12 +76,11 @@ li.active > a
   background-image: -ms-linear-gradient(top, #E0AE15, #E0A035);
   background-image: -o-linear-gradient(top, #E0AE15, #E0A035);
   background-image: linear-gradient(to bottom, #E0AE15, #E0A035);
-  -webkit-border-radius: 9;
-  -moz-border-radius: 9;
-  border-radius: 9px;
-  font-family: Arial;
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 2em;
   padding: 6px 10px;
   margin: 10px 0;
   text-decoration: none;
@@ -85,8 +96,8 @@ li.active > a
   text-decoration: none;
 }
 
-.btn-width{
-  width: 150px;
+.btn-block{
+  padding-top: 30px;
 }
 
 #file {
