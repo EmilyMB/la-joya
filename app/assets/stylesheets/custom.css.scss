@@ -4,7 +4,8 @@
 $light-gray: #777;
 $orange: #F25204;
 $dark-blue: #093D5E;
-$brown: #9E4D0B;
+$brown: #5C2D22;
+$light-brown: #9E4D0B;
 $tan: #E7CE9F;
 $purple: #800080;
 
@@ -29,13 +30,13 @@ body {
 .main-body {
   padding-top: 40px;
   text-align: center;
-  // background: blue;
-  width: 110%;
-  padding-right: -15px;
+  // // background: blue;
+  // width: 110%;
+  // padding-right: -15px;
 }
 
 .main-menu {
-  // background-color: purple;
+  background-color:rgba(255,255,255,.7);
   padding: 30px;
 }
 
@@ -76,13 +77,10 @@ li.active > a
   background-image: -ms-linear-gradient(top, #E0AE15, #E0A035);
   background-image: -o-linear-gradient(top, #E0AE15, #E0A035);
   background-image: linear-gradient(to bottom, #E0AE15, #E0A035);
-  -webkit-border-radius: 3;
-  -moz-border-radius: 3;
-  border-radius: 3px;
   color: #ffffff;
-  font-size: 2em;
-  padding: 6px 10px;
-  margin: 10px 0;
+  font-size: 1.5em;
+  // padding: 6px 10px;
+  // margin: 2px 0;
   text-decoration: none;
 }
 
@@ -96,8 +94,11 @@ li.active > a
   text-decoration: none;
 }
 
-.btn-block{
-  padding-top: 30px;
+.btn-width {
+  width: 90%;
+  // height: 50px;
+  // padding: 10px 0;
+  font-size: 3em;
 }
 
 #file {
