@@ -8,7 +8,7 @@
 
     <%= menu_group pull: :right do %>
       <% if current_user.nil? %>
-        <%= menu_item "Entrar con Facebook", "/auth/facebook", class:"btn btn-lg nav-list-item" %>
+        <%= menu_item "Entrar con Facebook", "/auth/facebook", class:"btn btn-lg nav-list-item login" %>
       <% else %>
         <%= menu_item "Salir", logout_path, class:"nav-list-item" %>
       <% end %>

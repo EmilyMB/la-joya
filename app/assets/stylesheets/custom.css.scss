@@ -10,10 +10,7 @@ $tan: #E7CE9F;
 $purple: #800080;
 
 html {
-  font-family: 'Lobster', cursive !important;
-
-  // font-family: 'Noto Sans', sans-serif;
-  background: url(image-path("rio_pajaro.jpg")) no-repeat center center fixed;
+  background: url(image-path("rio-pajaro.jpg")) no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
@@ -21,7 +18,8 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 100px;
   color: $orange;
   align-top: center;
   background-color:rgba(255,255,255,0) !important;
@@ -39,6 +37,12 @@ body {
   background-color:rgba(255,255,255,.7);
   padding: 30px;
 }
+
+// .main-item {
+//   padding: 15px;
+//   font-size: 2em;
+//   letter-spacing: 2px;
+// }
 
 li {
   list-style-type: none;
@@ -79,8 +83,6 @@ li.active > a
   background-image: linear-gradient(to bottom, #E0AE15, #E0A035);
   color: #ffffff;
   font-size: 1.5em;
-  // padding: 6px 10px;
-  // margin: 2px 0;
   text-decoration: none;
 }
 
@@ -95,14 +97,20 @@ li.active > a
 }
 
 .btn-width {
-  width: 90%;
+  width: 100%;
   // height: 50px;
-  // padding: 10px 0;
-  font-size: 3em;
+  padding: 2px 5px;
+  font-size: 5em;
+  margin: 20px 0;
 }
 
 #file {
   color: $purple;
   padding-left: 450px;
   text-align: center;
+}
+
+.login {
+  padding: 10px;
+  margin-top: 15px;
 }
