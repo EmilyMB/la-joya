@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize!
-    flash[:error] = "Favor de darle clic en Entrar para seguir"
+    # flash.now[:error] = "Favor de darle clic en Entrar para seguir"
     redirect_to root_path unless current_user
   end
 end

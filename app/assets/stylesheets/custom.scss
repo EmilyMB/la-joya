@@ -9,6 +9,7 @@ $light-brown: #9E4D0B;
 $tan: #E7CE9F;
 $purple: #800080;
 $white: #fff;
+$black: #000;
 
 // From adobe https://color.adobe.com/Theme-20-color-theme-5544017/
 $grey: #D9C7C1;
@@ -40,24 +41,24 @@ body {
   background-color: $dark-blue2;
 }
 
+.container {
+  width: 95%;
+}
+
 .main-body {
-  padding-top: 10px;
+  padding-top: 30px;
   text-align: center;
-  // // background: blue;
-  // width: 110%;
-  // padding-right: -15px;
+  width: 80%;
+}
+
+.row {
+  margin: 30px 0 50px;
 }
 
 .main-menu {
   // background-color:rgba(255,255,255,.7);
   padding: 30px;
 }
-
-// .main-item {
-//   padding: 15px;
-//   font-size: 2em;
-//   letter-spacing: 2px;
-// }
 
 li {
   list-style-type: none;
@@ -66,14 +67,13 @@ li {
 
 .navbar {
   background: $brown;
-  font-size: 1.6em;
+  font-size: 3em;
 }
 
 a.nav-list-item {
   background-color: none;
   color: $white !important;
-  letter-spacing: 1px;
-  // text-decoration: none;
+  margin-top: 55px;
 }
 
 .nav-list-image {
@@ -82,10 +82,8 @@ a.nav-list-item {
 
 li.active > a
 {
-  color: $tan !important;
   background-color: $brown !important;
 }
-
 
 .btn {
   border: 0.5vw solid $orange2;
@@ -96,21 +94,14 @@ li.active > a
 
 .btn:hover {
   background: $orange2;
-  // background-image: -webkit-linear-gradient(top, #e07b16, #e36c12);
-  // background-image: -moz-linear-gradient(top, #e07b16, #e36c12);
-  // background-image: -ms-linear-gradient(top, #e07b16, #e36c12);
-  // background-image: -o-linear-gradient(top, #e07b16, #e36c12);
-  // background-image: linear-gradient(to bottom, #e07b16, #e36c12);
-  text-decoration: none;
 }
 
 .btn-width {
   width: 100%;
-  // height: 50px;
   padding: 5px 5px;
   font-size: 5em;
   margin: 35px 0;
-  letter-spacing: 2px;
+  letter-spacing: 0.5vw;
 }
 
 #file {
@@ -120,7 +111,13 @@ li.active > a
 }
 
 .login {
-  // padding: 10px;
+  font-size: 4em;
+  margin-top: 100px;
+}
+
+.site-motto-lg {
+  font-size: 4em;
+  margin-bottom: 100px;
   margin-top: 40px;
-  margin-left: 0px;
+  padding: 30px;
 }
