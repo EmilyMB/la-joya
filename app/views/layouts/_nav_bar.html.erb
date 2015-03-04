@@ -2,13 +2,12 @@
 <%= nav_bar fixed: :top, responsive: true do %>
   <div class="nav-list">
     <%= menu_group inline: true do %>
-      <%= menu_item image_tag("goat2.jpg", size: "75x75"), root_path, class:"nav-list-image" %></a>
-      <%= menu_item "La Joya", root_path, class:"nav-list-item" %>
+      <%= menu_item image_tag("goat-walking4.png", size: "125x125"), root_path, class:"nav-list-image" %></a>
     <% end %>
 
     <%= menu_group pull: :right do %>
       <% if current_user.nil? %>
-        <%= menu_item "Entrar", "#", class:"nav-list-item" %>
+        <%= menu_item "Entrar con Facebook", "/auth/facebook", class:"btn btn-lg nav-list-item login" %>
       <% else %>
         <%= menu_item "Salir", logout_path, class:"nav-list-item" %>
       <% end %>
