@@ -25,7 +25,7 @@ gem "twitter-bootstrap-rails"
 gem "bootstrap_form", "~> 2.2.0"
 gem "bootstrap-sass",       "3.2.0.0"
 gem "i18n"
-gem 'carrierwave'
+gem "carrierwave"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 
@@ -41,7 +41,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
-  gem 'factory_girl_rails', '~> 4.5.0'
+  gem "factory_girl_rails", "~> 4.5.0"
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem "web-console", "~> 2.0"
 
@@ -56,8 +56,9 @@ group :development, :test do
   gem "launchy"
   gem "figaro"
   gem "rspec-rails", "~> 3.1.0"
-  gem "rspec-its", "~> 1.0.1"
-  gem 'database_cleaner', '~> 1.4.0'
+  gem "rspec-its",        "~> 1.0.1"
+  gem "database_cleaner", "~> 1.4.0"
+  gem "better_errors",    "~> 2.1.1"
 end
 
 group :test do
