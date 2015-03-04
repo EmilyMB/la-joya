@@ -1,0 +1,126 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$light-gray: #777;
+$orange: #F25204;
+$dark-blue: #093D5E;
+$brown: #5C2D22;
+$light-brown: #9E4D0B;
+$tan: #E7CE9F;
+$purple: #800080;
+$white: #fff;
+
+// From adobe https://color.adobe.com/Theme-20-color-theme-5544017/
+$grey: #D9C7C1;
+$yellow: #F2CA50;
+$orange-yellow: #F2994B;
+$adobe-orage: #F27B35;
+$green: #344021;
+
+// https://color.adobe.com/Old-Orange-Peel-color-theme-448736/
+$dark-brown1: #382500;
+$red1: #992200;
+
+// https://color.adobe.com/Infographics-6-color-theme-5378443/
+$dark-blue2: #314655;
+$orange2: #F58625;
+$red2: #F05026;
+$cyan2: #31BDC1;
+
+html {
+  background-color: $dark-blue2;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding-top: 150px;
+  margin: 0 -35px;
+  color: $orange2;
+  align-top: center;
+  background-color: $dark-blue2;
+}
+
+.main-body {
+  padding-top: 10px;
+  text-align: center;
+  // // background: blue;
+  // width: 110%;
+  // padding-right: -15px;
+}
+
+.main-menu {
+  // background-color:rgba(255,255,255,.7);
+  padding: 30px;
+}
+
+// .main-item {
+//   padding: 15px;
+//   font-size: 2em;
+//   letter-spacing: 2px;
+// }
+
+li {
+  list-style-type: none;
+  padding: 3px 30px 20px 0;
+}
+
+.navbar {
+  background: $brown;
+  font-size: 1.6em;
+}
+
+a.nav-list-item {
+  background-color: none;
+  color: $white !important;
+  letter-spacing: 1px;
+  // text-decoration: none;
+}
+
+.nav-list-image {
+  margin: -5px;
+}
+
+li.active > a
+{
+  color: $tan !important;
+  background-color: $brown !important;
+}
+
+
+.btn {
+  border: 0.5vw solid $orange2;
+  color: $white;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: $orange2;
+  // background-image: -webkit-linear-gradient(top, #e07b16, #e36c12);
+  // background-image: -moz-linear-gradient(top, #e07b16, #e36c12);
+  // background-image: -ms-linear-gradient(top, #e07b16, #e36c12);
+  // background-image: -o-linear-gradient(top, #e07b16, #e36c12);
+  // background-image: linear-gradient(to bottom, #e07b16, #e36c12);
+  text-decoration: none;
+}
+
+.btn-width {
+  width: 100%;
+  // height: 50px;
+  padding: 5px 5px;
+  font-size: 5em;
+  margin: 35px 0;
+  letter-spacing: 2px;
+}
+
+#file {
+  color: $purple;
+  padding-left: 450px;
+  text-align: center;
+}
+
+.login {
+  // padding: 10px;
+  margin-top: 40px;
+  margin-left: 0px;
+}

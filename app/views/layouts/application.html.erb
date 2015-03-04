@@ -4,28 +4,12 @@
   <head>
     <title>LaJoya</title>
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" %>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "application", media: "all"%>
+    <%= javascript_include_tag "application"%>
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1594166727488257',
-        xfbml      : true,
-        version    : 'v2.2'
-      });
-    };
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
     <%= render "layouts/nav_bar" if @disable_nav %>
     <%= render "layouts/full_nav_bar" unless @disable_nav %>
 
