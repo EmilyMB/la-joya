@@ -1,5 +1,6 @@
 class UploadsController < ApplicationController
   before_action :authorize!
+  skip_before_action :verify_authenticity_token
 
   def new
   end
@@ -15,6 +16,18 @@ class UploadsController < ApplicationController
 
   def index
     @uploads = Upload.all
+  end
+
+  def stuff
+    obj = S3_BUCKET.objects[params[:audio].original_filename]
+    obj.write(file: params[:audio], acl: :public_read)
+    @upload = Upload.new(url: obj.public_url, name: obj.key, meaning: "no meaning")
+    if @upload.save
+      redirect_to uploads_path, success: "File successfully uploaded"
+    else
+      flash.now[:error] = "There was an error"
+      render :new
+    end
   end
 
   private
