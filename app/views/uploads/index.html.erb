@@ -1,20 +1,26 @@
 <%= render "layouts/full_nav_bar" %>
 
-<h1>All uploads</h1>
+<h1>¡Haz clic en <img src="/assets/triangle.png" width="65"> para escuchar!</h1>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Archivo</th>
-        <th>Significado</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
     <% @uploads.each do |upload| %>
       <tr>
-        <td><%= link_to upload.name, upload.url %></td>
         <td><%= upload.meaning %></td>
-        </td>
+          <audio class="clip" id=<%= upload.id %>>
+            <source src=<%= upload.url %>>Hi</source>
+          </audio>
+        <td>
+          <!-- <button class="play-button" onclick="document.getElementById('<%= upload.id %>').play()">Escuchar</button> -->
+          <img src="/assets/triangle.png" width="65" onclick="document.getElementById('<%= upload.id %>').play()">
+
+        <td>
       </tr>
     <% end %>
     </tbody>
