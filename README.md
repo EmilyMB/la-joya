@@ -10,4 +10,4 @@ The app is in Spanish to facilitate recording of the elderly bilingual Nahuatl-S
 ### To use
 
 The app is currently a work in progress available at:
-[la-joya.herokuapp.com]: la-joya.herokuapp.com
+la-joya.herokuapp.com
