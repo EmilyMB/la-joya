@@ -1,0 +1,13 @@
+<%= render "layouts/full_nav_bar" %>
+
+<div class="col-lg-12">
+  <h1>Subir un archivo</h1>
+  <ul class="form">
+    <%= form_tag uploads_path, enctype: "multipart/form-data" do %>
+      <li><%= file_field_tag :file %></li>
+      <li><%= label_tag(:meaning, "Quiere decir:") %></li>
+      <li><%= text_field_tag :meaning  %></li>
+      <li><%= submit_tag "Subir" %></li>
+    <% end %>
+  </ul>
+</div>
