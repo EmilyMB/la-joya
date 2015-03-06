@@ -6,8 +6,8 @@
   <img src="/assets/triangle.png" width="85" onclick="startRecording(this);">
   <img src="/assets/stop.svg" width="75" onclick="stopRecording(this);">
 </p>
-<!-- <h2>Recordings</h2>
-<ul id="recordingslist"></ul> -->
+<!-- <h2>Recordings</h2> -->
+<ul id="recordingslist"></ul>
 
 <h2>Log</h2>
 <pre id="log"></pre>
@@ -45,7 +45,7 @@ function stopRecording(button) {
   __log('Stopped recording.');
 
   // create WAV download link using audio data blob
-  // createDownloadLink();
+  createDownloadLink();
 
   recorder.clear();
 }
