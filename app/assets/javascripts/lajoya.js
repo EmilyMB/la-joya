@@ -6,19 +6,25 @@
         $(this).text('Parar');
       }else{
         stopRecording();
+        $('#meaning').show();
         $(this).text('Grabar');
+        $(this).hide();
       }
-      if(!navigator.getUserMedia) {
+
+      if(navigator.getUserMedia) {
+        $('#warning').hide();
+      } else {
         $('#start-btn').hide();
         $('#meaning').hide();
-        alert("Favor de usar Chrome y permitir acceso al microfono");
+
+        alert("Favor de usar Chrome y permitir acceso al micrófono");
       }
 
       if(!recorder) {
         $('#start-btn').hide();
         $('#meaning').hide();
-        alert("Favor de refrescar la página y permitir acceso al microfono");
         $('#warning').show();
+        alert("Favor de refrescar la página y permitir acceso al microfono");
       }
 
     });
@@ -29,6 +35,11 @@
       alert("help!")
       alert("this is the attribute id" + this.getAttribute('id'))
     });
+
+    $('#clipControl').click(function(){
+      alert("help!");
+    });
+
   });
 
 })(window);

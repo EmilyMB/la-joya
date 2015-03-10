@@ -1,15 +1,16 @@
 <%= render "layouts/full_nav_bar" %>
 <p>
 <p id="start-btn" class="btn btn-width">Grabar</p>
-<p id="warning">Favor de refescar la página y permitir el uso el microfono</p>
+<p id="warning" hidden=true>Favor de refescar la página y permitir el uso del micrófono</p>
 </p>
 <!-- <h2>Recordings</h2> -->
 <ul id="recordingslist"></ul>
-<div id="meaning">
-<h2>Quiere decir...</h2>
+<div id="meaning" hidden=true>
+<h1>Quiere decir...</h1>
   <%=form_tag(upload_path(@upload.id), method: "patch") do %>
     <%= text_field_tag(:meaning) %></br>
-    <p><%= submit_tag %></p>
+    <p><%= submit_tag(value="Guardar") %></p>
+    <p> <%= link_to "Cancelar", new_upload_path, { class:"btn btn-width" } %>
   <% end %>
 </div>
 
@@ -38,8 +39,6 @@ function stopRecording() {
   recorder.clear();
 }
 
-
-
 function createDownloadLink() {
   recorder && recorder.exportWAV(function(blob) {
     var url = URL.createObjectURL(blob);
@@ -47,36 +46,29 @@ function createDownloadLink() {
     var au = document.createElement('audio');
     var im = document.createElement('img');
     var clipID = new Date().toISOString() + '.wav';
-    im.src = "/assets/triangle.png";
-    im.width="65";
-    im.className="play-btn2";
-    im.id=clipID;
-    au.controls = false;
+    au.controls = true;
+    au.preload='auto'
+    au.className="audio_volume_only"
+    au.features = ['playpause']
     au.className = "clip"
     au.id=clipID;
     au.src = url;
     li.appendChild(au);
-    li.appendChild(im);
     recordingslist.appendChild(li);
 
   });
 }
 window.onload = function init() {
   try {
-    // webkit shim
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
     window.URL = window.URL || window.webkitURL;
-
     audio_context = new AudioContext;
-    // __log('Audio context set up.');
-    //  __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
   } catch (e) {
     alert('No web audio support in this browser!');
   }
 
   navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-    __log('No live audio input: ' + e);
     alert("Problems!");
   });
 };
