@@ -6,10 +6,10 @@
 <!-- <h2>Recordings</h2> -->
 <ul id="recordingslist"></ul>
 <div id="meaning" hidden=true>
-<h1>Quiere decir...</h1>
+<h1 class="big-txt">Quiere decir...</h1>
   <%=form_tag(upload_path(@upload.id), method: "patch") do %>
-    <%= text_field_tag(:meaning) %></br>
-    <p><%= submit_tag(value="Guardar") %></p>
+    <%= text_field_tag :meaning, nil, class: "big-txt" %></br>
+    <p><%= submit_tag "Guardar", class:"btn btn-width" %></p>
     <p> <%= link_to "Cancelar", new_upload_path, { class:"btn btn-width" } %>
   <% end %>
 </div>
