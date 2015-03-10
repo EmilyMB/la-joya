@@ -1,6 +1,6 @@
 (function(window){
   $(document).ready(function(){
-    $("#start-btn").click(function(){
+    $('#start-btn').click(function(){
       if($(this).text()==='Grabar'){
         startRecording();
         $(this).text('Parar');

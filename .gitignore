@@ -18,5 +18,5 @@
 #Ignore public assets
 /public/assets/*
 
-#Igore coverage files
+#Ignore coverage files
 /coverage/*
