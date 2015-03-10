@@ -17,3 +17,6 @@
 
 #Ignore public assets
 /public/assets/*
+
+#Igore coverage files
+/coverage/*

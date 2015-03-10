@@ -70,8 +70,6 @@ function sendWaveToPost(blob) {
   };
 }
 
-
-
 function getBuffer(){
   var buffers = [];
   for (var channel = 0; channel < numChannels; channel++){

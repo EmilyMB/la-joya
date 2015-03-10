@@ -10,9 +10,7 @@
                  this.context.createJavaScriptNode).call(this.context,
                  bufferLen, numChannels, numChannels);
     var worker = new Worker(config.workerPath || WORKER_PATH);
-    console.log("This is worker path: " + WORKER_PATH );
-    console.log("This is config: " + config );
-    console.log("This is worker: " + worker );
+    
     worker.postMessage({
       command: 'init',
       config: {

@@ -53,6 +53,7 @@ end
 group :test do
   gem "shoulda-matchers", require: false
   gem "timecop", "~> 0.7.1"
+  gem 'simplecov', require: false
 end
 
 gem "rails_12factor", "~> 0.0", group: :production

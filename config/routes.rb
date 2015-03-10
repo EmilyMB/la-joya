@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get "/auth/facebook/callback", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
   post "/audio/save_file", to: "uploads#stuff"
-  resources :uploads, only: [:create, :index, :new]
+  resources :uploads, only: [:create, :index, :new, :update]
   resources :games, only: [:new]
 end
