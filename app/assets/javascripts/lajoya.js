@@ -24,7 +24,7 @@
         $('#start-btn').hide();
         $('#meaning').hide();
         $('#warning').show();
-        alert("Favor de refrescar la página y permitir acceso al microfono");
+        alert("Favor de actualizar la página y permitir acceso al microfono");
       }
 
     });

@@ -135,5 +135,16 @@ li.active > a
 }
 
 .big-txt {
-  font-size: 3em;
+  font-size: 4em;
+  width: 100%;
+  padding: 15px;
+}
+
+.txt-box {
+  background-color: white;
+}
+
+
+.txt-box:hover {
+  background-color: white;
 }
