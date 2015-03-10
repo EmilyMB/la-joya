@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   before_action :authorize!
 
   def new
-    words = Upload.all.shuffle
+    words = Upload.with_meaning.shuffle
     @word = words.first
     @word_list = words[0..3].shuffle
     session[:word] = @word
@@ -11,7 +11,7 @@ class GamesController < ApplicationController
 
   def update
     # binding.pry
-    if params[:guess].to_i == session[:word]["id"]
+    if params[:guess] == session[:word]["meaning"]
       redirect_to new_game_path
     else
       render :new

@@ -1,5 +1,11 @@
 (function(window){
   $(document).ready(function(){
+
+    $('#clip-play').click(function(){
+      var bob = $('.clip')[0];
+      bob.play();
+    });
+
     $('#start-btn').click(function(){
       if($(this).text()==='Grabar'){
         startRecording();
@@ -9,6 +15,7 @@
         $('#meaning').show();
         $(this).text('Grabar');
         $(this).hide();
+        $('#clip-play').show();
       }
 
       if(navigator.getUserMedia) {
@@ -32,8 +39,8 @@
       document.getElementById(this.getAttribute('id')).play();
     });
     $('.play-btn2').click(function(){
-      alert("help!")
-      alert("this is the attribute id" + this.getAttribute('id'))
+      alert("help!");
+      alert("this is the attribute id" + this.getAttribute('id'));
     });
 
     $('#clipControl').click(function(){
@@ -42,4 +49,18 @@
 
   });
 
+  window.onload = function init() {
+    try {
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+      window.URL = window.URL || window.webkitURL;
+      audio_context = new AudioContext;
+    } catch (e) {
+      alert('No web audio support in this browser!');
+    }
+
+    navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+      alert("Problems!");
+    });
+  };
 })(window);

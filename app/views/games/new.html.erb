@@ -1,20 +1,12 @@
 <%= render "layouts/full_nav_bar" %>
 
-<h2>Bienvenido</h2>
-<p>Aquí está el juego</p>
-<h1>¡Haz clic en <img src="/assets/triangle.png" width="65"> para escuchar!</h1>
 <div>
-  <table class="table table-striped table-responsive">
-    <thead>
-      <audio class="clip" id="<%= session[:word]["id"] %>">
-        <source src=<%= session[:word]["url"] %>></source>
-      </audio>
-      <img src="/assets/triangle.png" width="65" class="play-btn" id="<%= session[:word]["id"] %>">
-    </thead></br>
-    <tbody>
-    </tbody>
-  </table>
-      <% session[:word_list].each do |word| %>
-      <%= button_to word["meaning"], game_path(id: word["id"].to_i, guess: word["id"]), { method: :patch, class:"btn btn-width btn-med" } %>
-      <% end %>
+  <audio class="clip" id="<%= session[:word]["id"] %>">
+    <source src=<%= session[:word]["url"] %>></source>
+  </audio>
+  <p id="clip-play">Escuchar</p>
+  <p class="big-txt">Elige el significado:</p>
+  <% session[:word_list].each do |word| %>
+  <%= button_to word["meaning"], game_path(id: word["id"].to_i, guess: word["meaning"]), { method: :patch, class:"btn btn-width btn-med" } %>
+  <% end %>
 </div>
