@@ -141,9 +141,13 @@ li.active > a
 }
 
 .txt-box {
-  background-color: white;
+  background-color: $white;
 }
 
 .txt-box:hover {
-  background-color: white;
+  background-color: $white;
+}
+
+.my-play-button {
+  color: $white;
 }

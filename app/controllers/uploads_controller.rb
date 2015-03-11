@@ -22,7 +22,7 @@ class UploadsController < ApplicationController
   end
 
   def index
-    @uploads = Upload.all
+    @uploads = Upload.with_meaning
   end
 
   def stuff

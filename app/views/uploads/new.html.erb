@@ -7,7 +7,7 @@
 <ul id="recordingslist"></ul>
 <p id="clip-play" hidden=true>Escuchar</p>
 <div id="meaning" hidden=true>
-<h1 class="big-txt">Quiere decir...</h1>
+  <h1 class="big-txt">Quiere decir...</h1>
   <%=form_tag(upload_path(@upload.id), method: "patch") do %>
     <%= text_field_tag :meaning, nil, placeholder: "significado", class: "btn btn-width txt-box" %></br>
     <p><%= submit_tag "Guardar", class:"btn btn-width" %></p>
@@ -15,37 +15,4 @@
   <% end %>
 </div>
 
-
-<script>
-
-var audio_context;
-var recorder;
-function startUserMedia(stream) {
-  var input = audio_context.createMediaStreamSource(stream);
-
-  recorder = new Recorder(input);
-}
-function startRecording() {
-  recorder && recorder.record();
-}
-function stopRecording() {
-  recorder && recorder.stop();
-  createDownloadLink();
-  recorder.clear();
-}
-
-function createDownloadLink() {
-  recorder && recorder.exportWAV(function(blob) {
-    var url = URL.createObjectURL(blob);
-    var li = document.createElement('li');
-    var au = document.createElement('audio');
-    var clipID = new Date().toISOString() + '.wav';
-    au.preload='auto'
-    au.className = "clip"
-    au.src = url;
-    li.appendChild(au);
-    recordingslist.appendChild(li);
-  });
-}
-</script>
 <script src="../assets/recorder.js" type="text/javascript"></script>

@@ -6,6 +6,11 @@
       bob.play();
     });
 
+    $('.my-play-button').on('click', function() {
+      var url = $(this).attr('data');
+      new Audio(url).play();
+    });
+
     $('#start-btn').click(function(){
       if($(this).text()==='Grabar'){
         startRecording();
@@ -23,7 +28,6 @@
       } else {
         $('#start-btn').hide();
         $('#meaning').hide();
-
         alert("Favor de usar Chrome y permitir acceso al micrófono");
       }
 
@@ -33,8 +37,8 @@
         $('#warning').show();
         alert("Favor de actualizar la página y permitir acceso al microfono");
       }
-
     });
+
     $('.play-btn').click(function(){
       document.getElementById(this.getAttribute('id')).play();
     });
@@ -49,6 +53,37 @@
 
   });
 
+
+  var audio_context;
+  var recorder;
+  function startUserMedia(stream) {
+    var input = audio_context.createMediaStreamSource(stream);
+
+    recorder = new Recorder(input);
+  }
+  function startRecording() {
+    recorder && recorder.record();
+  }
+  function stopRecording() {
+    recorder && recorder.stop();
+    createDownloadLink();
+    recorder.clear();
+  }
+
+  function createDownloadLink() {
+    recorder && recorder.exportWAV(function(blob) {
+      var url = URL.createObjectURL(blob);
+      var li = document.createElement('li');
+      var au = document.createElement('audio');
+      var clipID = new Date().toISOString() + '.wav';
+      au.preload='auto'
+      au.className = "clip"
+      au.src = url;
+      li.appendChild(au);
+      recordingslist.appendChild(li);
+    });
+  }
+  
   window.onload = function init() {
     try {
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
