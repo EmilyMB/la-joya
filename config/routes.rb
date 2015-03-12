@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   post "/audio/save_file", to: "uploads#stuff"
   resources :uploads, only: [:create, :index, :new, :update]
-  resources :games, only: [:new]
+  resources :games, only: [:new, :update]
 end

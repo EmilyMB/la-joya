@@ -91,7 +91,7 @@ li.active > a
   background-color: $brown !important;
 }
 
-.btn {
+#clip-play, .btn {
   border: 0.5vw solid $orange2;
   color: $white;
   font-size: 1.5em;
@@ -102,13 +102,18 @@ li.active > a
   background: $orange2;
 }
 
-.btn-width {
+#clip-play, .btn-width {
   width: 100%;
   padding: 5px 5px;
   font-size: 5em;
   margin: 35px 0;
   letter-spacing: 0.5vw;
   text-decoration: none;
+  background-color: $dark-blue2;
+}
+
+.btn-med {
+  font-size: 3.5em;
 }
 
 #file {
@@ -129,9 +134,20 @@ li.active > a
   padding: 30px;
 }
 
-// .play-button {
-//   font-size: 3em;
-// }
-// #meaning {
-//   font-size: 2em;
-// }
+.big-txt {
+  font-size: 4em;
+  width: 100%;
+  padding: 15px;
+}
+
+.txt-box {
+  background-color: $white;
+}
+
+.txt-box:hover {
+  background-color: $white;
+}
+
+.my-play-button {
+  color: $white;
+}
