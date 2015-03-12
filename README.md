@@ -9,5 +9,10 @@ The app is in Spanish to facilitate recording of the elderly bilingual Nahuatl-S
 
 ### To use
 
-The app is currently a work in progress available at:
+The app is currently a work-in-progress available at:
 la-joya.herokuapp.com
+
+### Browser compatibility
+
+This app currently can be used in Chrome 3.1 and above. The limiting factors
+are getUserMedia and web worker FormData.

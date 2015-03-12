@@ -2,8 +2,7 @@
   $(document).ready(function(){
 
     $('#clip-play').click(function(){
-      var bob = $('.clip')[0];
-      bob.play();
+      $('.clip')[0].play();
     });
 
     $('.my-play-button').on('click', function() {
@@ -12,10 +11,10 @@
     });
 
     $('#start-btn').click(function(){
-      if($(this).text()==='Grabar'){
+      if($(this).text() === 'Grabar'){
         startRecording();
         $(this).text('Parar');
-      }else{
+      } else {
         stopRecording();
         $('#meaning').show();
         $(this).text('Grabar');
@@ -28,31 +27,21 @@
       } else {
         $('#start-btn').hide();
         $('#meaning').hide();
-        alert("Favor de usar Chrome y permitir acceso al micrófono");
       }
 
       if(!recorder) {
         $('#start-btn').hide();
         $('#meaning').hide();
         $('#warning').show();
-        alert("Favor de actualizar la página y permitir acceso al microfono");
+        alert('Favor de usar Chrome, actualizar la página y permitir acceso
+               al micrófono');
       }
     });
 
     $('.play-btn').click(function(){
       document.getElementById(this.getAttribute('id')).play();
     });
-    $('.play-btn2').click(function(){
-      alert("help!");
-      alert("this is the attribute id" + this.getAttribute('id'));
-    });
-
-    $('#clipControl').click(function(){
-      alert("help!");
-    });
-
   });
-
 
   var audio_context;
   var recorder;
@@ -72,30 +61,40 @@
 
   function createDownloadLink() {
     recorder && recorder.exportWAV(function(blob) {
+      if(blob.size > 70000 && blob.size < 2500000) {
       var url = URL.createObjectURL(blob);
       var li = document.createElement('li');
       var au = document.createElement('audio');
-      var clipID = new Date().toISOString() + '.wav';
-      au.preload='auto'
-      au.className = "clip"
+      au.preload='auto';
+      au.className = 'clip';
       au.src = url;
       li.appendChild(au);
       recordingslist.appendChild(li);
+    } else { alert('Clip tiene que ser entre 1 y 30 segundos'); }
+
+      if(!li){
+        $('#start-btn').show();
+        $('#start-btn').text('Grabar');
+        $('#meaning').hide();
+        $('#clip-play').hide();
+      }
     });
   }
-  
+
   window.onload = function init() {
     try {
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+      navigator.getUserMedia = navigator.getUserMedia ||
+                              navigator.webkitGetUserMedia;
       window.URL = window.URL || window.webkitURL;
       audio_context = new AudioContext;
     } catch (e) {
-      alert('No web audio support in this browser!');
+      alert('Favor de usar Chrome');
     }
 
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-      alert("Problems!");
+      alert('Favor de usar Chrome, actualizar la página, y permitir acceso
+             al micrófono');
     });
   };
 })(window);

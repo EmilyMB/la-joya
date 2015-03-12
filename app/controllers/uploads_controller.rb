@@ -7,11 +7,11 @@ class UploadsController < ApplicationController
   end
 
   def create
-    if file_present?
+    if file_valid?
       process_file
     else
-      flash.now[:error] = "Elegir un archivo para subir"
-      render :new
+      flash[:error] = "No se pudo guardar el clip"
+      redirect_to new_upload_path
     end
   end
 
@@ -25,33 +25,28 @@ class UploadsController < ApplicationController
     @uploads = Upload.with_meaning
   end
 
-  def stuff
-    obj = S3_BUCKET.objects[params[:audio].original_filename]
-    obj.write(file: params[:audio], acl: :public_read)
-    @upload = Upload.new(url: obj.public_url, name: obj.key, meaning: "no meaning")
-    if @upload.save
-      flash.now[:success] = "File successfully uploaded"
-    else
-      flash.now[:error] = "There was an error"
-    end
+  def destroy
+    Upload.last.delete
     redirect_to new_upload_path
   end
 
   private
 
-  def file_present?
-    params[:file]
+  def file_valid?
+    params[:audio]
   end
 
   def process_file
-    obj = S3_BUCKET.objects[params[:file].original_filename]
-    obj.write(file: params[:file], acl: :public_read)
-    @upload = Upload.new(url: obj.public_url, name: obj.key, meaning: params[:meaning])
+    obj = S3_BUCKET.objects[params[:audio].original_filename]
+    obj.write(file: params[:audio], acl: :public_read)
+    @upload = Upload.new(url: obj.public_url,
+                         name: obj.key,
+                         meaning: "no meaning")
     if @upload.save
-      redirect_to uploads_path, success: "File successfully uploaded"
+      flash[:success] = "File successfully uploaded"
     else
-      flash.now[:error] = "There was an error"
-      render :new
+      flash[:error] = "There was an error"
     end
+    redirect_to new_upload_path
   end
 end
