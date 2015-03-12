@@ -20,4 +20,8 @@ class GamesController < ApplicationController
 
   def check
   end
+
+  def index
+    @word = Dictionary.find("tortilla")
+  end
 end
