@@ -1,7 +1,6 @@
 require "rails_helper"
 
-describe Upload, type: "model"  do
-
+describe Upload, type: "model" do
   it "is invalid without a url" do
     upload = build(:upload, url: nil)
 

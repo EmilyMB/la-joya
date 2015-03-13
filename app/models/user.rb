@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  has_many :uploads
+  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :email, presence: true
+  validates :provider, presence: true
+
   def self.find_or_create_from_auth(auth)
     user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)
     user.email = auth.info.email
