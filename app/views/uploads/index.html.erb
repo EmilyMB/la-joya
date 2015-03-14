@@ -3,6 +3,8 @@
 <h1>¡Haz clic para escuchar!</h1>
 <div class="table-responsive">
   <% @uploads.each do |upload| %>
-    <p class='my-play-button' data='<%= upload.url %>'><%= upload.meaning %></p>
+    <a href="#" class='my-play-button' data='<%= upload.url %>'>
+      <%= upload.meaning %>
+    </a></br>
   <% end %>
 </div>

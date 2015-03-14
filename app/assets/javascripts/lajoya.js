@@ -33,8 +33,7 @@
         $('#start-btn').hide();
         $('#meaning').hide();
         $('#warning').show();
-        alert('Favor de usar Chrome, actualizar la página y permitir acceso
-               al micrófono');
+        alert('Favor de usar Chrome, actualizar la página y permitir acceso al micrófono');
       }
     });
 
@@ -93,8 +92,7 @@
     }
 
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-      alert('Favor de usar Chrome, actualizar la página, y permitir acceso
-             al micrófono');
+      alert('Favor de usar Chrome, actualizar la página, y permitir acceso al micrófono');
     });
   };
 })(window);

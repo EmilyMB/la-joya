@@ -151,3 +151,9 @@ li.active > a
 .my-play-button {
   color: $white;
 }
+
+.my-play-button:focus,
+.my-play-button:hover {
+  color: $orange2;
+  text-decoration: none;
+}

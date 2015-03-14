@@ -54,7 +54,7 @@ function exportWAV(type){
 
 function sendWaveToPost(blob) {
   var data = new FormData();
-  data.append("audio", blob, (new Date()).getTime() + ".wav");
+  data.append("audio", blob, (new Date()).getTime() + ".mp3");
 
   var oReq = new XMLHttpRequest();
   oReq.open("POST", "/uploads");
