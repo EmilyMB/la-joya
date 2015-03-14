@@ -88,6 +88,7 @@
   };
 
   Recorder.forceDownload = function(blob, filename){
+    alert("in forceDownload this is blog" + blob)
     var url = (window.URL || window.webkitURL).createObjectURL(blob);
     var link = window.document.createElement('a');
     link.href = url;

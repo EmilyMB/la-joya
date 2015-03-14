@@ -157,3 +157,10 @@ li.active > a
   color: $orange2;
   text-decoration: none;
 }
+
+progress {
+  background-color: $white;
+  border: 0;
+  height: 30px;
+  border-radius: 9px;
+}

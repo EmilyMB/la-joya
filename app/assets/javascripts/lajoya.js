@@ -19,6 +19,9 @@
         $('#meaning').show();
         $(this).text('Grabar');
         $(this).hide();
+        $('#progressbar').show();
+        $('.progress-value').show();
+        $('.progress-value').text('Espera...Subiendo clip');
         $('#clip-play').show();
       }
 
@@ -69,6 +72,8 @@
       au.src = url;
       li.appendChild(au);
       recordingslist.appendChild(li);
+      sendWaveToPost(blob);
+
     } else { alert('Clip tiene que ser entre 1 y 30 segundos'); }
 
       if(!li){
@@ -78,6 +83,48 @@
         $('#clip-play').hide();
       }
     });
+  }
+
+  function sendWaveToPost(blob) {
+    var data = new FormData();
+    data.append('audio', blob, (new Date()).getTime() + '.mp3');
+
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener('progress', updateProgress, false);
+    oReq.addEventListener('load', transferComplete, false);
+    oReq.open('POST', '/uploads');
+    oReq.setRequestHeader('X-CSRF-Token',
+      'xobbGEAxrKTnjkzCcIBB69Df391+sMX6pcqp500R9jmutFCeAv69tCVbngovFHvHaiizJRXDP8R1ugfNxdC61Q');
+    oReq.send(data);
+    var startTime = (new Date()).getTime();
+    console.log('Upload started');
+
+      function updateProgress (oEvent) {
+        if (oEvent.lengthComputable) {
+
+        var percentComplete = (oEvent.loaded / oEvent.total) * 100;
+
+        $('#progressbar').val(percentComplete);
+        console.log('progress is now: ' + percentComplete);
+        $('.progress-value').html(percentComplete + '%');
+      } else {
+        alert('Algo no funciona');
+      }
+
+    }
+
+    function transferComplete(evt) {
+      endTime = (new Date()).getTime();
+      alert('The transfer is complete after: ' + (endTime - startTime) / 1000 + ' seconds');
+    }
+
+    oReq.onload = function(oEvent) {
+      if (oReq.status == 200) {
+          console.log('Uploaded');
+      } else {
+          alert('Error ' + oReq.status + ' when uploading your file.');
+      }
+    };
   }
 
   window.onload = function init() {

@@ -48,26 +48,7 @@ function exportWAV(type){
   }
   var dataview = encodeWAV(interleaved);
   var audioBlob = new Blob([dataview], { type: type });
-  sendWaveToPost(audioBlob);
   this.postMessage(audioBlob);
-}
-
-function sendWaveToPost(blob) {
-  var data = new FormData();
-  data.append("audio", blob, (new Date()).getTime() + ".mp3");
-
-  var oReq = new XMLHttpRequest();
-  oReq.open("POST", "/uploads");
-  oReq.setRequestHeader('X-CSRF-Token',
-    "xobbGEAxrKTnjkzCcIBB69Df391+sMX6pcqp500R9jmutFCeAv69tCVbngovFHvHaiizJRXDP8R1ugfNxdC61Q");
-  oReq.send(data);
-  oReq.onload = function(oEvent) {
-      if (oReq.status == 200) {
-          console.log("Uploaded");
-      } else {
-          console.log("Error " + oReq.status + " when uploading your file.");
-      }
-  };
 }
 
 function getBuffer(){
