@@ -41,7 +41,8 @@ class UploadsController < ApplicationController
     obj.write(file: params[:audio], acl: :public_read)
     @upload = Upload.new(url: obj.public_url,
                          name: obj.key,
-                         meaning: "no meaning")
+                         meaning: "no meaning",
+                         user_id: current_user.id)
     if @upload.save
       flash[:success] = "File successfully uploaded"
     else
