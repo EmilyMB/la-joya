@@ -23,6 +23,9 @@
         $('.progress-value').show();
         $('.progress-value').text('Espera...Subiendo clip');
         $('#clip-play').show();
+        $('#clip-play').on('click', function() {
+          $('.clip')[0].play();
+        });
       }
 
       if(navigator.getUserMedia) {
@@ -79,7 +82,6 @@
         $('#start-btn').show();
         $('#start-btn').text('Grabar');
         $('#meaning').hide();
-        $('#clip-play').hide();
       }
     });
   }
@@ -113,7 +115,7 @@
 
     function transferComplete(evt) {
       endTime = (new Date()).getTime();
-      alert('The transfer is complete after: ' + (endTime - startTime) / 1000 + ' seconds');
+      console.log('The transfer is complete after: ' + (endTime - startTime) / 1000 + ' seconds');
     }
 
     oReq.onload = function(oEvent) {
