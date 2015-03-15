@@ -1,7 +1,7 @@
 (function(window){
   $(document).ready(function(){
 
-    $('#clip-play').click(function(){
+    $('#clip-play').on('click', function() {
       $('.clip')[0].play();
     });
 
@@ -67,7 +67,6 @@
       var url = URL.createObjectURL(blob);
       var li = document.createElement('li');
       var au = document.createElement('audio');
-      au.preload='auto';
       au.className = 'clip';
       au.src = url;
       li.appendChild(au);
