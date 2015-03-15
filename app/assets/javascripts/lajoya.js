@@ -23,9 +23,6 @@
         $('.progress-value').show();
         $('.progress-value').text('Espera...Subiendo clip');
         $('#clip-play').show();
-        $('#clip-play').on('click', function() {
-          $('.clip')[0].play();
-        });
       }
 
       if(navigator.getUserMedia) {
@@ -67,18 +64,11 @@
   function createDownloadLink() {
     recorder && recorder.exportWAV(function(blob) {
       if(blob.size > 70000 && blob.size < 2500000) {
-      var url = URL.createObjectURL(blob);
-      var li = document.createElement('li');
-      var au = document.createElement('audio');
-      au.className = 'clip';
-      au.src = url;
-      li.appendChild(au);
-      recordingslist.appendChild(li);
+
       sendWaveToPost(blob);
 
-    } else { alert('Clip tiene que ser entre 1 y 30 segundos'); }
-
-      if(!li){
+      } else {
+        alert('Clip tiene que ser entre 1 y 30 segundos');
         $('#start-btn').show();
         $('#start-btn').text('Grabar');
         $('#meaning').hide();
@@ -108,10 +98,19 @@
         $('#progressbar').val(percentComplete);
         console.log('progress is now: ' + percentComplete);
         $('.progress-value').html(percentComplete + '%');
+        $('#clip-source').attr('src', function() {
+          var url =  'Session[:upload_url]' ;
+          alert(url);
+          return(url);
+          });
       } else {
         alert('Algo no funciona');
       }
     }
+
+//     $( "img" ).attr( "src", function() {
+//   return "/resources/" + this.title;
+// });
 
     function transferComplete(evt) {
       endTime = (new Date()).getTime();

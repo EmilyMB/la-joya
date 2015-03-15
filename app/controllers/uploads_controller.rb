@@ -18,6 +18,7 @@ class UploadsController < ApplicationController
   def update
     @upload = Upload.last
     @upload.update_attributes(new_meaning_params)
+    session[:upload_url] = "#"
     redirect_to new_upload_path
   end
 
@@ -27,6 +28,7 @@ class UploadsController < ApplicationController
 
   def destroy
     Upload.last.delete
+    session[:upload_url] = "#"
     redirect_to new_upload_path
   end
 
@@ -39,17 +41,19 @@ class UploadsController < ApplicationController
   def process_file
     obj = S3_BUCKET.objects[params[:audio].original_filename]
     obj.write(file: params[:audio], acl: :public_read)
-    @upload = Upload.new(url: obj.public_url,
+    upload = Upload.new(url: obj.public_url,
                          name: obj.key,
                          meaning: "no meaning",
                          meaning_en: "no meaning",
                          user_id: current_user.id)
-    if @upload.save
+    if upload.save
       flash[:message] = "File successfully uploaded"
+      session[:upload_url] = upload.url
+      redirect_to new_upload_path
     else
       flash[:error] = "There was an error"
     end
-    redirect_to new_upload_path
+
   end
 
   def new_meaning_params

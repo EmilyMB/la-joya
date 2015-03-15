@@ -23,6 +23,7 @@ gem "bootstrap-sass",          "~>3.2.0"
 gem "i18n",                    "~> 0.7"
 gem "carrierwave",             "~> 0.10"
 gem "faraday"
+gem "gon"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 
