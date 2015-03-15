@@ -4,7 +4,7 @@
   <audio class="clip">
     <source id="game-clip" src=<%= session[:word]["url"] %>></source>
   </audio>
-  <p id="clip-play">Escuchar</p>
+  <a href="#" id="clip-play" class="btn btn-width">Escuchar</a>
   <p class="big-txt">Elige el significado:</p>
   <ul class="choices">
   <% session[:word_list].each do |word| %>
