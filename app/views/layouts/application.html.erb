@@ -10,7 +10,6 @@
     <script src="../assets/recorder.js" type="text/javascript"></script>
   </head>
   <body>
-
     <div class="main-body container">
       <!-- <div
         class="fb-like"
@@ -18,12 +17,13 @@
         data-width="450"
         data-show-faces="true">
       </div> -->
-      <% flash.each do |name, message| %>
-        <div class="<%= bootstrap_class_for(name) %>">
-          <%= message%>
-        </div>
-      <% end %>
-
+      <div class="flash-messages">
+        <% flash.each do |name, message| %>
+          <div class=name>
+            <%= message %>
+          </div>
+        <% end %>
+      </div>
     <%= yield %>
 
     <div>

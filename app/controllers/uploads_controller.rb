@@ -17,7 +17,7 @@ class UploadsController < ApplicationController
 
   def update
     @upload = Upload.last
-    @upload.update_attributes(meaning: params[:meaning])
+    @upload.update_attributes(new_meaning_params)
     redirect_to new_upload_path
   end
 
@@ -42,6 +42,7 @@ class UploadsController < ApplicationController
     @upload = Upload.new(url: obj.public_url,
                          name: obj.key,
                          meaning: "no meaning",
+                         meaning_en: "no meaning",
                          user_id: current_user.id)
     if @upload.save
       flash[:success] = "File successfully uploaded"
@@ -49,5 +50,19 @@ class UploadsController < ApplicationController
       flash[:error] = "There was an error"
     end
     redirect_to new_upload_path
+  end
+
+  def new_meaning_params
+    if params[:meaning] != ""
+      {
+        meaning: params[:meaning],
+        meaning_en: Dictionary.find(params[:meaning])
+      }
+    else
+      {
+        meaning: "no meaning",
+        meaning_en: "no meaning"
+      }
+    end
   end
 end

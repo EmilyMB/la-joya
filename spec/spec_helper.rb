@@ -4,6 +4,8 @@ require "factory_girl_rails"
 require "factory_girl"
 require "support/factory_girl"
 require "simplecov"
+require "rack_session_access/capybara"
+
 SimpleCov.start
 
 RSpec.configure do |config|

@@ -1,12 +1,17 @@
 <%= render "layouts/full_nav_bar" %>
 
 <div>
-  <audio class="clip" id="<%= session[:word]["id"] %>">
-    <source src=<%= session[:word]["url"] %>></source>
+  <audio class="clip">
+    <source id="game-clip" src=<%= session[:word]["url"] %>></source>
   </audio>
   <p id="clip-play">Escuchar</p>
   <p class="big-txt">Elige el significado:</p>
+  <ul class="choices">
   <% session[:word_list].each do |word| %>
-  <%= button_to word["meaning"], game_path(id: word["id"].to_i, guess: word["meaning"]), { method: :patch, class:"btn btn-width btn-med" } %>
+  <li>
+    <%= button_to word["meaning"], game_path(id: word["id"].to_i,
+      guess: word["meaning"]),
+      { method: :patch, class:"btn btn-width btn-med" } %>
+  </li>
   <% end %>
 </div>
