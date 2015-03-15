@@ -45,7 +45,7 @@ class UploadsController < ApplicationController
                          meaning_en: "no meaning",
                          user_id: current_user.id)
     if @upload.save
-      flash[:success] = "File successfully uploaded"
+      flash[:message] = "File successfully uploaded"
     else
       flash[:error] = "There was an error"
     end
