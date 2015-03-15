@@ -2,6 +2,14 @@
   $(document).ready(function(){
 
     $('#clip-play').on('click', function() {
+      // $('#clip-source').attr('src', function() {
+        var url =  gon.upload_url;
+        alert("this is gon now!!! " + url)
+      //   alert(url);
+      //   return(url);
+      //   });
+      // document.getElementById("op").src  = open
+      // getElementById("clip-play").scr = "HELKP";
       $('.clip')[0].play();
     });
 
@@ -98,11 +106,7 @@
         $('#progressbar').val(percentComplete);
         console.log('progress is now: ' + percentComplete);
         $('.progress-value').html(percentComplete + '%');
-        $('#clip-source').attr('src', function() {
-          var url =  'Session[:upload_url]' ;
-          alert(url);
-          return(url);
-          });
+
       } else {
         alert('Algo no funciona');
       }
@@ -115,11 +119,17 @@
     function transferComplete(evt) {
       endTime = (new Date()).getTime();
       console.log('The transfer is complete after: ' + (endTime - startTime) / 1000 + ' seconds');
+      // $('#clip-source').attr('src', function() {
+      //   var url =  gon.upload_url;
+      //   alert(url);
+      //   return(url);
+      //   });
     }
 
     oReq.onload = function(oEvent) {
       if (oReq.status == 200) {
         console.log('Uploaded');
+        alert("HI this is now the gon" + gon.upload_url)
       } else {
         console.log('Error ' + oReq.status + ' when uploading your file.');
       }

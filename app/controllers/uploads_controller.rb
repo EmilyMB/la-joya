@@ -3,6 +3,7 @@ class UploadsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def new
+    gon.upload_url = session[:upload_url]
     @upload = Upload.last
   end
 
@@ -18,7 +19,8 @@ class UploadsController < ApplicationController
   def update
     @upload = Upload.last
     @upload.update_attributes(new_meaning_params)
-    session[:upload_url] = "#"
+    session[:upload_url] = "#update"
+    gon.upload_url = session[:upload_url]
     redirect_to new_upload_path
   end
 
@@ -28,7 +30,8 @@ class UploadsController < ApplicationController
 
   def destroy
     Upload.last.delete
-    session[:upload_url] = "#"
+    session[:upload_url] = "#destroy"
+    gon.upload_url = session[:upload_url]
     redirect_to new_upload_path
   end
 
@@ -49,6 +52,7 @@ class UploadsController < ApplicationController
     if upload.save
       flash[:message] = "File successfully uploaded"
       session[:upload_url] = upload.url
+      gon.upload_url = session[:upload_url]
       redirect_to new_upload_path
     else
       flash[:error] = "There was an error"
