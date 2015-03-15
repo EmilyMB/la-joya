@@ -110,7 +110,6 @@
       } else {
         alert('Algo no funciona');
       }
-
     }
 
     function transferComplete(evt) {
@@ -120,9 +119,9 @@
 
     oReq.onload = function(oEvent) {
       if (oReq.status == 200) {
-          console.log('Uploaded');
+        console.log('Uploaded');
       } else {
-          alert('Error ' + oReq.status + ' when uploading your file.');
+        console.log('Error ' + oReq.status + ' when uploading your file.');
       }
     };
   }
