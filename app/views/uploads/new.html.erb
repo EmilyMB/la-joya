@@ -8,7 +8,7 @@
 <h1 class="progress-value big-text" hidden=true></h1>
 
 <div id="meaning" hidden=true>
-  <a href="#" id="clip-play" class="btn btn-width" hidden=true>Escuchar</a>
+  <a href="#" id="clip-play" class="btn btn-width">Escuchar</a>
   <%=form_tag(upload_path(@upload.id), method: "patch") do %>
     <%= text_field_tag :meaning, nil,
                        placeholder: "significado",
