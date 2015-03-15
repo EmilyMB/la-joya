@@ -10,10 +10,13 @@ class GamesController < ApplicationController
   end
 
   def update
-    # binding.pry
-    if params[:guess] == session[:word]["meaning"]
+    answer = session[:word]["meaning"]
+    if params[:guess] == answer
+      flash[:message] = "¡La adivinaste! La palabra fue '#{answer}' "\
+                        "#{answer_en}"
       redirect_to new_game_path
     else
+      flash[:message] = "¡Intenta de nuevo!"
       render :new
     end
   end
@@ -23,5 +26,14 @@ class GamesController < ApplicationController
 
   def index
     @word = Dictionary.find("tortilla")
+  end
+
+  private
+
+  def answer_en
+    answer = session[:word]["meaning_en"]
+    if ![nil, "", "no meaning"].include? answer
+      "o en inglés '#{answer}'"
+    end
   end
 end

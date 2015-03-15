@@ -7,8 +7,9 @@ FactoryGirl.define do
   end
 
   factory :upload do
-    url "www.example.com"
-    meaning "manzana"
+    sequence(:url)        { |n| "www.e#{n}xample.com" }
+    sequence(:meaning)    { |n| "manzana#{n}" }
+    sequence(:meaning_en) { |n| "apple#{n}" }
     user
 
     factory :upload_without_meaning do

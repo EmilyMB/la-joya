@@ -13,7 +13,10 @@ class DictionaryService
   private
 
   def parse(response)
-    JSON.parse(response.body)["results"][0]["senses"][0]
-                             ["translations"][0]["text"][0]
+    if JSON.parse(response.body)["results"].present?
+      JSON.parse(response.body)["results"][0]["senses"][0]["translations"][0]["text"][0]
+    else
+      "no meaning"
+    end
   end
 end

@@ -57,7 +57,6 @@ body {
 }
 
 .main-menu {
-  // background-color:rgba(255,255,255,.7);
   padding: 30px;
 }
 
@@ -163,4 +162,10 @@ progress {
   border: 0;
   height: 30px;
   border-radius: 9px;
+}
+
+.flash-messages {
+  color: $white;
+  font-size: 1.5em;
+  margin-bottom: 50px;
 }
