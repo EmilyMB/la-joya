@@ -1,6 +1,6 @@
 class Upload < ActiveRecord::Base
   belongs_to :user
-  # validates :url, presence: true
+  validates :url, presence: true
   # validates :meaning, presence: true
   # validates :user_id, presence: true
 
