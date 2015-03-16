@@ -9,15 +9,15 @@
 
 <div id="meaning" hidden=true>
   <audio class="clip">
-    <source id="clip-source" src= <%= @upload.url %>></source>
+    <source id="clip-source" src= <%= session[:upload_url] %>></source>
   </audio>
-  <a href="#" id="clip-play" class="btn btn-width">Escuchar</a>
-  <%=form_tag(upload_path(@upload.id), method: "patch") do %>
+  <a href="#" id="clip-play" class="btn btn-width" hidden=true>Escuchar</a>
+  <%=form_tag(upload_path("1"), method: "patch") do %>
     <%= text_field_tag :meaning, nil,
                        placeholder: "significado",
                        class: "btn btn-width txt-box" %></br>
     <p><%= submit_tag "Guardar", class:"btn btn-width" %></p>
-    <p> <%= link_to "Cancelar", upload_path(@upload), { method: :delete, class:"btn btn-width" } %>
+    <p> <%= link_to "Cancelar", upload_path("1"), { method: :delete, class:"btn btn-width" } %>
   <% end %>
 </div>
 

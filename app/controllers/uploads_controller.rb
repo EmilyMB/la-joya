@@ -3,8 +3,7 @@ class UploadsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def new
-    gon.upload_url = session[:upload_url]
-    @upload = Upload.last
+    @up = params[:up_url]
   end
 
   def create
@@ -53,7 +52,7 @@ class UploadsController < ApplicationController
       flash[:message] = "File successfully uploaded"
       session[:upload_url] = upload.url
       gon.upload_url = session[:upload_url]
-      redirect_to new_upload_path
+      redirect_to new_upload_path(up_url: session[:upload_url])
     else
       flash[:error] = "There was an error"
     end
