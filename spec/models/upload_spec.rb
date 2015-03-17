@@ -7,10 +7,10 @@ describe Upload, type: "model" do
     expect(upload).not_to be_valid
   end
 
-  it "is invalid without a meaning" do
-    upload = build(:upload, meaning: nil)
+  it "is has a default meaning" do
+    upload = create(:upload, meaning: nil)
 
-    expect(upload).not_to be_valid
+    expect(upload.meaning).to eq("no meaning")
   end
 
   it "is invalid without an associated user" do

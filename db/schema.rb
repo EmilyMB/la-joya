@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317193354) do
+ActiveRecord::Schema.define(version: 20150317232028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,12 @@ ActiveRecord::Schema.define(version: 20150317193354) do
   create_table "uploads", force: :cascade do |t|
     t.string   "url"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "meaning"
     t.string   "meaning_en"
     t.integer  "user_id"
+    t.boolean  "active",     default: false
   end
 
   add_index "uploads", ["user_id"], name: "index_uploads_on_user_id", using: :btree

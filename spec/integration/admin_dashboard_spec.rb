@@ -44,12 +44,12 @@ describe "an admin", type: :feature do
       uploads.each do |upload|
         expect(page).to have_content(upload.user_id)
         expect(page).to have_content(upload.meaning_en)
-        expect(page).to have_content(upload.created_at)
-        expect(page).to have_content(upload.updated_at)
+        expect(page).to have_content(upload.formatted_created_at)
+        expect(page).to have_content(upload.formatted_updated_at)
       end
     end
 
-    it "can see a button to edit each upload" do
+    it "can see a button to activate and edit each upload" do
       admin = create(:user, admin: true)
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(admin)
@@ -61,6 +61,7 @@ describe "an admin", type: :feature do
 
       visit dashboard_path
 
+      expect(page).to have_link("Activar", count: 20)
       expect(page).to have_link("Editar", count: 20)
     end
 
@@ -78,6 +79,19 @@ describe "an admin", type: :feature do
       first(:link, "Editar").click
 
       expect(current_path).to eq(edit_upload_path(uploads.first))
+    end
+
+    it "can activate an upload" do
+      admin = create(:user, admin: true)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(admin)
+      upload = create(:upload)
+
+      visit dashboard_path
+      first(:link, "Activar").click
+
+      expect(current_path).to eq(dashboard_path)
+      expect(Upload.find(upload.id).active?).to be_truthy
     end
   end
 end

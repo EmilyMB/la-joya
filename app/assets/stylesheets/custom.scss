@@ -90,6 +90,9 @@ li.active > a
   background-color: $brown !important;
 }
 
+tr {
+  font-size: 0.75em;
+}
 .form {
   padding: 20px 0;
 }
@@ -119,9 +122,16 @@ li.active > a
   font-size: 3.5em;
 }
 
+.btn-table {
+  font-size: 1em;
+}
+
+.btn-form {
+  margin: 10px;
+}
+
 .btn-danger {
   border: 0.5vw solid $red2;
-  margin-top: 20px;
 }
 
 .btn-danger:hover {

@@ -30,8 +30,7 @@ class UploadsController < ApplicationController
 
   def update
     @upload = Upload.find(params[:id])
-    @upload.update_attributes(meaning: params[:upload][:meaning],
-                              meaning_en: params[:upload][:meaning_en])
+    @upload.update_attributes(upload_params)
 
     redirect_to dashboard_path
   end
@@ -89,5 +88,9 @@ class UploadsController < ApplicationController
         meaning_en: "no meaning"
       }
     end
+  end
+
+  def upload_params
+    params.require(:upload).permit(:meaning, :meaning_en, :active)
   end
 end

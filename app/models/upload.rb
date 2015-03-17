@@ -17,4 +17,12 @@ class Upload < ActiveRecord::Base
     self.meaning ||= "no meaning"
     self.meaning_en ||= "no meaning"
   end
+
+  def formatted_created_at
+    self.created_at.strftime("%e/%m/%Y")
+  end
+
+  def formatted_updated_at
+    self.created_at.strftime("%e/%m/%Y")
+  end
 end

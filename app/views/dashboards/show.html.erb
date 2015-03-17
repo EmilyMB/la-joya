@@ -13,9 +13,19 @@
           <%= upload.meaning %></a></td>
         <td><%= upload.meaning_en %></td>
         <td><%= upload.user_id %></td>
-        <td><%= upload.created_at %></td>
-        <td><%= upload.updated_at %></td>
-        <td> <%= link_to "Editar", edit_upload_path(upload.id) %></td>
+        <td><%= upload.formatted_created_at %></td>
+        <td><%= upload.formatted_updated_at %></td>
+        <% if upload.active? %>
+          <td><%= link_to "Desactivar",
+            upload_path(upload, upload: { active: false }), method: :patch,
+            class: "btn btn-table btn-danger" %>
+        <% else %>
+          <td><%= link_to "Activar",
+            upload_path(upload, upload: { active: true }), method: :patch,
+            class: "btn btn-table" %>
+        <% end %>
+        <td><%= link_to "Editar", edit_upload_path(upload.id),
+          class: "btn btn-table"%></td>
       </tr>
     <% end %>
 </table>
