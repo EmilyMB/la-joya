@@ -1,0 +1,20 @@
+
+<table class="table">
+  <thead>
+    <td>Click para esuchar</td>
+    <td>Inglés</td>
+    <td>Usuario</td>
+    <td>Creado</td>
+    <td>Actualizdo</td>
+    </thead>
+    <% @uploads.each do |upload| %>
+      <tr class="word">
+        <td><a href="#" class='my-play-button' data='<%= upload.url %>'>
+          <%= upload.meaning %></a></td>
+        <td><%= upload.meaning_en %></td>
+        <td><%= upload.user_id %></td>
+        <td><%= upload.created_at %></td>
+        <td><%= upload.updated_at %></td>
+      </tr>
+    <% end %>
+</table>

@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     # flash.now[:error] = "Favor de darle clic en Entrar para seguir"
     redirect_to root_path unless current_user
   end
+
+  def admin_check!
+    redirect_to root_path unless current_user.admin?
+  end
 end

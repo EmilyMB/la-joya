@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   resources :uploads
   resources :games, only: [:new, :update]
+  resource :dashboard, only: [:show]
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

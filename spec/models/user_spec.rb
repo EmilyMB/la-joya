@@ -33,4 +33,18 @@ describe User, type: "model" do
     expect(Upload.count).to eq(5)
     expect(user.uploads.count).to eq(3)
   end
+
+  it "is not an admin by default" do
+    user = create(:user)
+
+    expect(user.admin?).to be_falsey
+  end
+
+  it "is be an admin" do
+    user = create(:user)
+
+    user.update_attributes(admin: true)
+
+    expect(user.admin?).to be_truthy
+  end
 end
