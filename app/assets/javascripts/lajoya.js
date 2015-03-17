@@ -36,7 +36,8 @@
         $('#start-btn').hide();
         $('#meaning').hide();
         $('#warning').show();
-        alert('Favor de usar Chrome, actualizar la página y permitir acceso al micrófono');
+        alert('Favor de usar Chrome, actualizar la página y permitir acceso' +
+          ' al micrófono');
       }
     });
 
@@ -106,7 +107,8 @@
 
     function transferComplete(evt) {
       endTime = (new Date()).getTime();
-      console.log('The transfer is complete after: ' + (endTime - startTime) / 1000 + ' seconds');
+      console.log('The transfer is complete after: '
+        + (endTime - startTime) / 1000 + ' seconds');
     }
 
     oReq.onload = function(oEvent) {
@@ -130,7 +132,8 @@
     }
 
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-      alert('Favor de usar Chrome, actualizar la página, y permitir acceso al micrófono');
+      alert('Favor de usar Chrome, actualizar la página, y permitir acceso al' +
+        ' micrófono');
     });
   };
 })(window);

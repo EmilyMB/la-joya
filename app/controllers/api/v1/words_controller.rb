@@ -5,7 +5,7 @@ class Api::V1::WordsController < ApplicationController
   end
 
   def show
-    @word = Upload.public_words.find(params[:id])
+    @word = Upload.public_words.find_by(meaning: params[:id])
     render json: @word
   end
 end

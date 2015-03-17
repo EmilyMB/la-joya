@@ -11,7 +11,7 @@ RSpec.describe GamesController do
       session[:word] = uploads.first
       session[:word_list] = uploads
 
-      put :update, { id: uploads.first.id, guess: uploads.first.meaning }
+      put :update, id: uploads.first.id, guess: uploads.first.meaning
 
       expect(response).to redirect_to(new_game_path)
       expect(flash[:message]).to be_present
@@ -26,7 +26,7 @@ RSpec.describe GamesController do
       session[:word] = uploads.first
       session[:word_list] = uploads
 
-      put :update, { id: uploads.first.id, guess: uploads.second.meaning }
+      put :update, id: uploads.first.id, guess: uploads.second.meaning
 
       expect(response).to have_http_status(200)
       expect(flash[:alert]).to be_present

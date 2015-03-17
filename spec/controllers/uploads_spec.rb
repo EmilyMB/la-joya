@@ -52,8 +52,9 @@ RSpec.describe UploadsController do
         and_return(user)
       post :create, { audio: file_to_upload }
 
-      expect { delete :destroy, id: Upload.last
-        }.to change{ Upload.count }.by(-1)
+      expect {
+        delete :destroy, id: Upload.last
+      }.to change{ Upload.count }.by(-1)
       expect(response).to redirect_to(new_upload_path)
       expect(flash[:error]).not_to be_present
     end

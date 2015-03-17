@@ -9,9 +9,8 @@ RSpec.describe SessionsController do
 
   describe "#create" do
     it "should successfully create a user" do
-      expect {
-        post :create, provider: :facebook
-      }.to change{ User.count }.by(1)
+      expect { post :create, provider: :facebook }.
+        to change { User.count }.by(1)
     end
 
     it "should successfully create a session" do

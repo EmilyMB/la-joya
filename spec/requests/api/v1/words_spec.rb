@@ -39,7 +39,7 @@ describe "Words API" do
     word = words.first
     second_word = words.second
 
-    get "/api/v1/words/#{word.id}"
+    get "/api/v1/words/#{word.meaning}"
 
     expect(response).to be_success
     json = JSON.parse(response.body)
@@ -54,7 +54,7 @@ describe "Words API" do
     words = FactoryGirl.create_list(:upload, 10)
     word = words.first
 
-    get "/api/v1/words/#{word.id}"
+    get "/api/v1/words/#{word.meaning}"
 
     expect(response).to be_success
     json = JSON.parse(response.body)
