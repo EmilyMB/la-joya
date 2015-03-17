@@ -29,7 +29,7 @@ describe "an admin", type: :feature do
       expect(page).to have_css("tr.word", count: 20)
     end
 
-    it "can details for each upload" do
+    it "can see details for each upload" do
       admin = create(:user, admin: true)
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(admin)
@@ -49,5 +49,35 @@ describe "an admin", type: :feature do
       end
     end
 
+    it "can see a button to edit each upload" do
+      admin = create(:user, admin: true)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(admin)
+      uploads = []
+      10.times do
+        uploads << create(:upload)
+        uploads << create(:upload_without_meaning)
+      end
+
+      visit dashboard_path
+
+      expect(page).to have_link("Editar", count: 20)
+    end
+
+    it "can click a button and be taken to the edit upload page" do
+      admin = create(:user, admin: true)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(admin)
+      uploads = []
+      10.times do
+        uploads << create(:upload)
+        uploads << create(:upload_without_meaning)
+      end
+
+      visit dashboard_path
+      first(:link, "Editar").click
+
+      expect(current_path).to eq(edit_upload_path(uploads.first))
+    end
   end
 end

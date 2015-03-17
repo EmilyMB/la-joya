@@ -90,11 +90,15 @@ li.active > a
   background-color: $brown !important;
 }
 
+.form {
+  padding: 20px 0;
+}
 .btn {
   border: 0.5vw solid $orange2;
   color: $white;
   font-size: 1.5em;
   text-decoration: none;
+  background-color: $dark-blue2;
 }
 
 .btn:hover {
@@ -113,6 +117,15 @@ li.active > a
 
 .btn-med {
   font-size: 3.5em;
+}
+
+.btn-danger {
+  border: 0.5vw solid $red2;
+  margin-top: 20px;
+}
+
+.btn-danger:hover {
+  background-color: $red2;
 }
 
 #file {

@@ -15,6 +15,7 @@
         <td><%= upload.user_id %></td>
         <td><%= upload.created_at %></td>
         <td><%= upload.updated_at %></td>
+        <td> <%= link_to "Editar", edit_upload_path(upload.id) %></td>
       </tr>
     <% end %>
 </table>

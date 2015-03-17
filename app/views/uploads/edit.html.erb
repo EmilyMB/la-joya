@@ -1,0 +1,20 @@
+<h2>Editar clip</h2>
+<div class=row>
+  <div class="col-md-8 col-md-offset-2">
+    <audio class="clip">
+      <source id="clip-source" src=<%= @upload.url %>></source>
+    </audio>
+    <p id="clip-play" class="btn btn-form">Escuchar</p>
+  </div>
+  <div class="form">
+    <%= bootstrap_form_for(@upload) do |f| %>
+      <%= f.text_field :meaning, label: "significado" %>
+      <%= f.text_field :meaning_en, label: "inglés" %>
+      <%= f.submit "Guardar", class: "btn btn-form" %>
+      <%= link_to "Cancelar", dashboard_path, class: "btn btn-form" %></br>
+      <%= link_to "Eliminar", upload_path(@upload),
+        { method: :delete, class:"btn btn-danger",
+          data: { confirm: "¿Seguro que quieres eliminar el clip?" }} %>
+    <% end %>
+  </div>
+</div>
