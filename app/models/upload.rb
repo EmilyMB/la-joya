@@ -7,4 +7,8 @@ class Upload < ActiveRecord::Base
   def self.with_meaning
     where.not(meaning: ["no meaning", ""])
   end
+
+  def self.public_words
+    where.not(meaning: ["no meaning", ""]).select(:id, :meaning, :meaning_en, :url)
+  end
 end

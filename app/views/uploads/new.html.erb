@@ -1,21 +1,23 @@
 <%= render "layouts/full_nav_bar" %>
-<p>
+
 <a href="#" id="start-btn" class="btn btn-width">Grabar</a>
 <p id="warning" hidden=true>Favor de usar Chrome, actualizar la página
                             y permitir el uso del micrófono</p>
-</p>
 <ul id="recordingslist"></ul>
 <progress id="progressbar" value="0" max="100" hidden=true></progress>
 <h1 class="progress-value big-text" hidden=true></h1>
-<p id="clip-play" hidden=true>Escuchar</p>
+
 <div id="meaning" hidden=true>
-  <h1 class="big-txt">Quiere decir...</h1>
-  <%=form_tag(upload_path(@upload.id), method: "patch") do %>
+  <audio class="clip">
+    <source id="clip-source" src= <%= session[:upload_url] %>></source>
+  </audio>
+  <a href="#" id="clip-play" class="btn btn-width" hidden=true>Escuchar</a>
+  <%=form_tag(upload_path("1"), method: "patch") do %>
     <%= text_field_tag :meaning, nil,
                        placeholder: "significado",
                        class: "btn btn-width txt-box" %></br>
     <p><%= submit_tag "Guardar", class:"btn btn-width" %></p>
-    <p> <%= link_to "Cancelar", upload_path(@upload), { method: :delete, class:"btn btn-width" } %>
+    <p> <%= link_to "Cancelar", upload_path("1"), { method: :delete, class:"btn btn-width" } %>
   <% end %>
 </div>
 

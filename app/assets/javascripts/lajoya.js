@@ -1,7 +1,7 @@
 (function(window){
   $(document).ready(function(){
 
-    $('#clip-play').click(function(){
+    $('#clip-play').on('click', function() {
       $('.clip')[0].play();
     });
 
@@ -22,7 +22,7 @@
         $('#progressbar').show();
         $('.progress-value').show();
         $('.progress-value').text('Espera...Subiendo clip');
-        $('#clip-play').show();
+        $('#clip-play').hide();
       }
 
       if(navigator.getUserMedia) {
@@ -36,7 +36,8 @@
         $('#start-btn').hide();
         $('#meaning').hide();
         $('#warning').show();
-        alert('Favor de usar Chrome, actualizar la página y permitir acceso al micrófono');
+        alert('Favor de usar Chrome, actualizar la página y permitir acceso' +
+          ' al micrófono');
       }
     });
 
@@ -64,23 +65,14 @@
   function createDownloadLink() {
     recorder && recorder.exportWAV(function(blob) {
       if(blob.size > 70000 && blob.size < 2500000) {
-      var url = URL.createObjectURL(blob);
-      var li = document.createElement('li');
-      var au = document.createElement('audio');
-      au.preload='auto';
-      au.className = 'clip';
-      au.src = url;
-      li.appendChild(au);
-      recordingslist.appendChild(li);
+
       sendWaveToPost(blob);
 
-    } else { alert('Clip tiene que ser entre 1 y 30 segundos'); }
-
-      if(!li){
+      } else {
+        alert('Clip tiene que ser entre 1 y 30 segundos');
         $('#start-btn').show();
         $('#start-btn').text('Grabar');
         $('#meaning').hide();
-        $('#clip-play').hide();
       }
     });
   }
@@ -107,22 +99,23 @@
         $('#progressbar').val(percentComplete);
         console.log('progress is now: ' + percentComplete);
         $('.progress-value').html(percentComplete + '%');
+
       } else {
         alert('Algo no funciona');
       }
-
     }
 
     function transferComplete(evt) {
       endTime = (new Date()).getTime();
-      alert('The transfer is complete after: ' + (endTime - startTime) / 1000 + ' seconds');
+      console.log('The transfer is complete after: '
+        + (endTime - startTime) / 1000 + ' seconds');
     }
 
     oReq.onload = function(oEvent) {
       if (oReq.status == 200) {
-          console.log('Uploaded');
+        console.log('Uploaded');
       } else {
-          alert('Error ' + oReq.status + ' when uploading your file.');
+        console.log('Error ' + oReq.status + ' when uploading your file.');
       }
     };
   }
@@ -139,7 +132,8 @@
     }
 
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-      alert('Favor de usar Chrome, actualizar la página, y permitir acceso al micrófono');
+      alert('Favor de usar Chrome, actualizar la página, y permitir acceso al' +
+        ' micrófono');
     });
   };
 })(window);

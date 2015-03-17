@@ -90,7 +90,7 @@ li.active > a
   background-color: $brown !important;
 }
 
-#clip-play, .btn {
+.btn {
   border: 0.5vw solid $orange2;
   color: $white;
   font-size: 1.5em;
@@ -101,7 +101,7 @@ li.active > a
   background: $orange2;
 }
 
-#clip-play, .btn-width {
+.btn-width {
   width: 100%;
   padding: 5px 5px;
   font-size: 5em;

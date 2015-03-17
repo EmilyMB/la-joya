@@ -20,25 +20,69 @@ RSpec.describe UploadsController do
         and_return(user)
       subject { get :index }
     end
+  end
 
+  describe "#create" do
     it "uploads the file" do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(user)
 
-      get :create, params: { audio: file_to_upload }
+      expect {
+        post :create, { audio: file_to_upload }
+      }.to change{ Upload.count }.by(1)
+
       expect(response).to redirect_to(new_upload_path)
+      expect(flash[:error]).not_to be_present
     end
 
-    def file_to_upload
-      ActionDispatch::Http::UploadedFile.new(
-        content_type: "audio/wav",
-        headers:
-        "Content-Disposition: form-data; name=\"audio\"; "\
-          "filename=\"1426362615855.mp3\"\r\nContent-Type: audio/wav\r\n",
-        original_filename: "1426362615855.mp3",
-        tempfile: File.new("#{Rails.root}/spec/fixtures/test_clip.wav")
-      )
+    it "doesn't upload a file for an non-authorized user" do
+      expect {
+        post :create, { audio: file_to_upload }
+      }.to change{ Upload.count }.by(0)
+
+      expect(response).to redirect_to(root_path)
     end
+  end
+
+  describe "#destroy" do
+    it "deletes the upload and redirects to the new upload path" do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(user)
+      post :create, { audio: file_to_upload }
+
+      expect {
+        delete :destroy, id: Upload.last
+      }.to change{ Upload.count }.by(-1)
+      expect(response).to redirect_to(new_upload_path)
+      expect(flash[:error]).not_to be_present
+    end
+  end
+
+  describe "#update" do
+    it "updates the upload" do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(user)
+      post :create, { audio: file_to_upload }
+
+      put :update, id: Upload.last, meaning: "perro"
+      upload = Upload.last
+
+      expect(upload.meaning).to eq("perro")
+      expect(upload.meaning_en).to eq("dog")
+      expect(response).to redirect_to(new_upload_path)
+    end
+  end
+
+  def file_to_upload
+    ActionDispatch::Http::UploadedFile.new(
+      type: "audio/wav",
+      head: "Content-Disposition: form-data; name=\"audio\"; "\
+        "filename=\"1426362615855.mp3\"\r\nContent-Type: audio/wav\r\n",
+      filename: "1426362615855.mp3",
+      tempfile: File.new("#{Rails.root}/spec/fixtures/test_clip.wav")
+    )
   end
 end

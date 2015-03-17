@@ -16,16 +16,12 @@ class GamesController < ApplicationController
                         "#{answer_en}"
       redirect_to new_game_path
     else
-      flash[:message] = "¡Intenta de nuevo!"
+      flash[:alert] = "¡Intenta de nuevo!"
       render :new
     end
   end
 
   def check
-  end
-
-  def index
-    @word = Dictionary.find("tortilla")
   end
 
   private
