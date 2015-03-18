@@ -93,5 +93,60 @@ describe "an admin", type: :feature do
       expect(current_path).to eq(dashboard_path)
       expect(Upload.find(upload.id).active?).to be_truthy
     end
+
+    xit "can click on the link to the home page" do
+      admin = create(:user, admin: true)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(admin)
+
+      visit dashboard_path
+      page.find("img[@alt='goat-logo']").click
+
+      expect(current_path).to eq(home_path)
+    end
+
+    it "can click on the link to the Di page" do
+      admin = create(:user, admin: true)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(admin)
+
+      visit dashboard_path
+      click_link("Di")
+
+      expect(current_path).to eq(new_upload_path)
+    end
+
+    it "can click on the link to the Escucha page" do
+      admin = create(:user, admin: true)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(admin)
+
+      visit dashboard_path
+      click_link("Escucha")
+
+      expect(current_path).to eq(uploads_path)
+    end
+
+    it "can click on the link to the Adivina page" do
+      admin = create(:user, admin: true)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(admin)
+
+      visit dashboard_path
+      click_link("Adivina")
+
+      expect(current_path).to eq(new_game_path)
+    end
+
+    it "can click on the link to logout" do
+      admin = create(:user, admin: true)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(admin)
+
+      visit dashboard_path
+      click_link("Salir")
+
+      expect(current_path).to eq(root_path)
+    end
   end
 end

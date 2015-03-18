@@ -1,0 +1,15 @@
+<navbar>
+<%= nav_bar fixed: :top, responsive: true do %>
+  <div class="admin-nav-list">
+    <%= menu_group inline: true do %>
+      <%= menu_item image_tag("goat-walking4.png", alt: "goat-logo", size: "50x50"), home_path, class:"nav-list-image" %>
+      <%= menu_item "Di", new_upload_path, class:"admin-nav-list-item" %>
+      <%= menu_item "Escucha", uploads_path, class:"admin-nav-list-item" %>
+      <%= menu_item "Adivina", new_game_path, class:"admin-nav-list-item" %>
+    <% end %>
+    <%= menu_group pull: :right do %>
+      <%= menu_item "Salir", logout_path, class:"admin-nav-list-item" %>
+    <% end %>
+  </div>
+<% end %>
+</navbar>

@@ -75,6 +75,19 @@ li {
   margin-top: 7vw;
 }
 
+admin-nav-list > a {
+  font-size: 0.5em;
+  background-color: none;
+  color: $white !important;
+}
+
+a.admin-nav-list-item {
+  font-size: 0.5em;
+  background-color: none;
+  color: $white !important;
+  margin-top: 20px;
+}
+
 a.nav-list-item {
   background-color: none;
   color: $white !important;
