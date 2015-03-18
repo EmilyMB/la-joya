@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   patch "/add_meaning", to: "uploads#add_meaning"
   delete "/remove_upload", to: "uploads#remove_upload"
-  resources :uploads
+  resources :uploads, except: [:show]
   resources :games, only: [:new, :update]
   resource :dashboard, only: [:show]
 
