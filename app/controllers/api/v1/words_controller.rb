@@ -1,6 +1,6 @@
 class Api::V1::WordsController < ApplicationController
   def index
-    @words = Upload.with_meaning.select(:id, :meaning, :meaning_en, :url)
+    @words = Upload.public_words.select(:id, :meaning, :meaning_en, :url)
     render json: @words
   end
 

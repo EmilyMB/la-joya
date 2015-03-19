@@ -34,32 +34,3 @@ describe "home page" do
     end
   end
 end
-
-describe "uploads pages" do
-  include Capybara::DSL
-
-  context "user not logged in" do
-    it "visits uploads_path" do
-      visit uploads_path
-      expect(current_path).to eq root_path
-    end
-
-    it "visits new_upload_path" do
-      visit new_upload_path
-      expect(current_path).to eq root_path
-    end
-  end
-
-  context "user logged in" do
-    before(:each) do
-      user = create(:user)
-      allow_any_instance_of(ApplicationController).
-        to receive(:current_user).and_return(user)
-    end
-
-    it "visits new_upload_path" do
-      visit new_upload_path
-      expect(current_path).to eq new_upload_path
-    end
-  end
-end

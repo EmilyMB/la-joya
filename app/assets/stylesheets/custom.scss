@@ -75,6 +75,18 @@ li {
   margin-top: 7vw;
 }
 
+admin-nav-list > a {
+  background-color: none;
+  font-size: 2.5em;
+}
+
+a.admin-nav-list-item {
+  background-color: none;
+  color: $white !important;
+  font-size: 0.5em;
+  margin-top: 20px;
+}
+
 a.nav-list-item {
   background-color: none;
   color: $white !important;
@@ -90,11 +102,20 @@ li.active > a
   background-color: $brown !important;
 }
 
+tr {
+  font-size: 0.75em;
+}
+
+.form {
+  padding: 20px 0;
+}
+
 .btn {
   border: 0.5vw solid $orange2;
   color: $white;
   font-size: 1.5em;
   text-decoration: none;
+  background-color: $dark-blue2;
 }
 
 .btn:hover {
@@ -113,6 +134,22 @@ li.active > a
 
 .btn-med {
   font-size: 3.5em;
+}
+
+.btn-table {
+  font-size: 1em;
+}
+
+.btn-form {
+  margin: 10px;
+}
+
+.btn-danger {
+  border: 0.5vw solid $red2;
+}
+
+.btn-danger:hover {
+  background-color: $red2;
 }
 
 #file {

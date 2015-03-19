@@ -3,7 +3,11 @@ class SessionsController < ApplicationController
     user = User.find_or_create_from_auth(auth)
     session[:user_id] = user.id if user
 
-    redirect_to home_path
+    if user.admin?
+      redirect_to dashboard_path
+    else
+      redirect_to home_path
+    end
   end
 
   def destroy

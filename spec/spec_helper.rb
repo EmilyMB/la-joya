@@ -6,7 +6,7 @@ require "support/factory_girl"
 require "simplecov"
 require "rack_session_access/capybara"
 
-SimpleCov.start
+SimpleCov.start "rails"
 
 OmniAuth.config.test_mode = true
 

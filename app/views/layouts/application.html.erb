@@ -12,19 +12,13 @@
   </head>
   <body>
     <div class="main-body container">
-      <!-- <div
-        class="fb-like"
-        data-share="true"
-        data-width="450"
-        data-show-faces="true">
-      </div> -->
-      <div class="flash-messages">
-        <% flash.each do |name, message| %>
-          <div class=name>
-            <%= message %>
-          </div>
-        <% end %>
+
+    <% flash.each do |name, message| %>
+      <div class="flash-messages <%= name %>">
+        <%= message %>
       </div>
+    <% end %>
+
     <%= yield %>
 
     <div>

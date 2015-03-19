@@ -1,5 +1,6 @@
 class Upload < ActiveRecord::Base
   belongs_to :user
+  before_validation :add_meaning
   validates :url, presence: true
   validates :meaning, presence: true
   validates :user_id, presence: true
@@ -10,5 +11,18 @@ class Upload < ActiveRecord::Base
 
   def self.public_words
     where.not(meaning: ["no meaning", ""]).select(:id, :meaning, :meaning_en, :url)
+  end
+
+  def add_meaning
+    self.meaning ||= "no meaning"
+    self.meaning_en ||= "no meaning"
+  end
+
+  def formatted_created_at
+    created_at.strftime("%e/%m/%Y")
+  end
+
+  def formatted_updated_at
+    created_at.strftime("%e/%m/%Y")
   end
 end

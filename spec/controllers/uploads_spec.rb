@@ -53,21 +53,21 @@ RSpec.describe UploadsController do
       post :create, { audio: file_to_upload }
 
       expect {
-        delete :destroy, id: Upload.last
+        delete :remove_upload, id: Upload.last
       }.to change{ Upload.count }.by(-1)
       expect(response).to redirect_to(new_upload_path)
       expect(flash[:error]).not_to be_present
     end
   end
 
-  describe "#update" do
-    it "updates the upload" do
+  describe "#add_meaning" do
+    it "adds meaning to the upload" do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(user)
       post :create, { audio: file_to_upload }
 
-      put :update, id: Upload.last, meaning: "perro"
+      put :add_meaning, id: Upload.last, meaning: "perro"
       upload = Upload.last
 
       expect(upload.meaning).to eq("perro")

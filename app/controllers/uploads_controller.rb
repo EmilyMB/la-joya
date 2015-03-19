@@ -1,5 +1,6 @@
 class UploadsController < ApplicationController
   before_action :authorize!
+  before_action :admin_check!, only: [:edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
   def new
@@ -14,23 +15,41 @@ class UploadsController < ApplicationController
     redirect_to new_upload_path
   end
 
-  def update
+  def edit
+    @upload = Upload.find(params[:id])
+  end
+
+  def add_meaning
     @upload = Upload.last
     @upload.update_attributes(new_meaning_params)
     session[:upload_url] = "#update"
     gon.upload_url = session[:upload_url]
+
     redirect_to new_upload_path
+  end
+
+  def update
+    @upload = Upload.find(params[:id])
+    @upload.update_attributes(upload_params)
+
+    redirect_to dashboard_path
   end
 
   def index
     @uploads = Upload.with_meaning
   end
 
-  def destroy
+  def remove_upload
     Upload.last.delete
     session[:upload_url] = "#destroy"
     gon.upload_url = session[:upload_url]
     redirect_to new_upload_path
+  end
+
+  def destroy
+    Upload.destroy(params[:id])
+
+    redirect_to dashboard_path
   end
 
   private
@@ -69,5 +88,9 @@ class UploadsController < ApplicationController
         meaning_en: "no meaning"
       }
     end
+  end
+
+  def upload_params
+    params.require(:upload).permit(:meaning, :meaning_en, :active)
   end
 end
