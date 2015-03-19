@@ -26,9 +26,11 @@ describe "the uploads" do
   end
 
   context "user logged in" do
-    before { user = create(:user)
+    before(:each) do
+      user = create(:user)
       allow_any_instance_of(ApplicationController).
-      to receive(:current_user).and_return(user) }
+        to receive(:current_user).and_return(user)
+    end
 
     it "visits dashboard_path" do
       visit dashboard_path
@@ -52,9 +54,11 @@ describe "the uploads" do
   end
 
   context "admin logged in" do
-    before { admin = create(:user, admin: true)
+    before(:each) do
+      admin = create(:user, admin: true)
       allow_any_instance_of(ApplicationController).
-        to receive(:current_user).and_return(admin) }
+        to receive(:current_user).and_return(admin)
+    end
 
     it "visits dashboard_path" do
       visit dashboard_path

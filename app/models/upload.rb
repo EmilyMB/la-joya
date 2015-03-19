@@ -19,10 +19,10 @@ class Upload < ActiveRecord::Base
   end
 
   def formatted_created_at
-    self.created_at.strftime("%e/%m/%Y")
+    created_at.strftime("%e/%m/%Y")
   end
 
   def formatted_updated_at
-    self.created_at.strftime("%e/%m/%Y")
+    created_at.strftime("%e/%m/%Y")
   end
 end

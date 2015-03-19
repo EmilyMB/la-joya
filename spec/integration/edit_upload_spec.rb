@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "an upload", type: :feature do
-    include Capybara::DSL
+  include Capybara::DSL
 
   it "can be updated" do
     admin = create(:user, admin: true)
@@ -47,9 +47,9 @@ describe "an upload", type: :feature do
 
     visit edit_upload_path(upload)
 
-    expect{ click_link_or_button("Eliminar") }
-      .to change{ Upload.count }.by(-1)
-      
+    expect { click_link_or_button("Eliminar") }
+      .to change { Upload.count }.by(-1)
+
     expect(current_path).to eq(dashboard_path)
     expect(page).not_to have_content(upload.meaning)
   end

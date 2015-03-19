@@ -76,15 +76,14 @@ li {
 }
 
 admin-nav-list > a {
-  font-size: 0.5em;
   background-color: none;
-  color: $white !important;
+  font-size: 2.5em;
 }
 
 a.admin-nav-list-item {
-  font-size: 0.5em;
   background-color: none;
   color: $white !important;
+  font-size: 0.5em;
   margin-top: 20px;
 }
 
@@ -106,9 +105,11 @@ li.active > a
 tr {
   font-size: 0.75em;
 }
+
 .form {
   padding: 20px 0;
 }
+
 .btn {
   border: 0.5vw solid $orange2;
   color: $white;
