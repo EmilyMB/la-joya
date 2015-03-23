@@ -59,21 +59,7 @@ class UploadsController < ApplicationController
   end
 
   def process_file
-    obj = S3_BUCKET.objects[params[:audio].original_filename]
-    obj.write(file: params[:audio], acl: :public_read)
-    upload = Upload.new(url: obj.public_url,
-                        name: obj.key,
-                        meaning: "no meaning",
-                        meaning_en: "no meaning",
-                        user_id: current_user.id)
-
-    if upload.save
-      flash[:message] = "File successfully uploaded"
-      session[:upload_url] = upload.url
-      gon.upload_url = session[:upload_url]
-    else
-      flash[:error] = "There was an error"
-    end
+    ProcessUpload.new(params[:audio], current_user.id).call
   end
 
   def new_meaning_params
