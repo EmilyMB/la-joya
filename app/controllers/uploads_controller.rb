@@ -22,8 +22,6 @@ class UploadsController < ApplicationController
   def add_meaning
     @upload = Upload.last
     @upload.update_attributes(new_meaning_params)
-    session[:upload_url] = "#update"
-    gon.upload_url = session[:upload_url]
 
     redirect_to new_upload_path
   end
@@ -41,8 +39,7 @@ class UploadsController < ApplicationController
 
   def remove_upload
     Upload.last.delete
-    session[:upload_url] = "#destroy"
-    gon.upload_url = session[:upload_url]
+
     redirect_to new_upload_path
   end
 
