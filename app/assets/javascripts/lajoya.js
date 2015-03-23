@@ -22,7 +22,6 @@
         $('#progressbar').show();
         $('.progress-value').show();
         $('.progress-value').text('Espera...Subiendo clip');
-        $('#clip-play').hide();
       }
 
       if(navigator.getUserMedia) {

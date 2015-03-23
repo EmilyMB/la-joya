@@ -8,10 +8,6 @@
 <h1 class="progress-value big-text" hidden=true></h1>
 
 <div id="meaning" hidden=true>
-  <audio class="clip">
-    <source id="clip-source" src= <%= session[:upload_url] %>></source>
-  </audio>
-  <a href="#" id="clip-play" class="btn btn-width" hidden=true>Escuchar</a>
   <%=form_tag(add_meaning_path("1"), method: "patch") do %>
     <%= text_field_tag :meaning, nil,
                        placeholder: "significado",
