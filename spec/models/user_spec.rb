@@ -7,12 +7,6 @@ describe User, type: "model" do
     expect(user).not_to be_valid
   end
 
-  it "is invalid without a first name" do
-    user = build(:user, first_name: nil)
-
-    expect(user).not_to be_valid
-  end
-
   it "is invalid without an email" do
     user = build(:user, email: nil)
 
