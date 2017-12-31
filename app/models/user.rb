@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_many :uploads
   validates :name, presence: true
-  validates :first_name, presence: true
   validates :email, presence: true
   validates :provider, presence: true
 
