@@ -16,3 +16,8 @@ la-joya.herokuapp.com
 
 This app currently can be used in Chrome 3.1 and above. The limiting factors
 are getUserMedia and web worker FormData.
+
+### Privacy policy
+
+Sign in with Facebook is required in order to be able to block bad behavior. Your name, email, and profile image URL are saved in the database.
+They will not be shared or distributed.

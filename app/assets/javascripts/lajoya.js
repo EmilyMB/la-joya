@@ -1,4 +1,6 @@
 (function(window){
+  var audioAllowed = "false";
+
   $(document).ready(function(){
 
     $('#clip-play').on('click', function() {
@@ -24,7 +26,7 @@
         $('.progress-value').text('Espera...Subiendo clip');
       }
 
-      if(navigator.getUserMedia) {
+      if(audioAllowed === "true") {
         $('#warning').hide();
       } else {
         $('#start-btn').hide();
@@ -35,8 +37,6 @@
         $('#start-btn').hide();
         $('#meaning').hide();
         $('#warning').show();
-        alert('Favor de usar Chrome, actualizar la página y permitir acceso' +
-          ' al micrófono');
       }
     });
 
@@ -122,17 +122,17 @@
   window.onload = function init() {
     try {
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      navigator.getUserMedia = navigator.getUserMedia ||
-                              navigator.webkitGetUserMedia;
       window.URL = window.URL || window.webkitURL;
       audio_context = new AudioContext;
     } catch (e) {
-      alert('Favor de usar Chrome');
+      console.log('Favor de usar Chrome');
     }
 
-    navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-      alert('Favor de usar Chrome, actualizar la página, y permitir acceso al' +
-        ' micrófono');
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+      startUserMedia(stream)
+      audioAllowed = "true";
+    }).catch(function (e) {
+      console.log(e);
     });
   };
 })(window);
