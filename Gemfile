@@ -1,6 +1,6 @@
 source "https://rubygems.org"
-ruby "2.3.3"
-gem "rails",                   "4.2.0"
+ruby "2.4.2"
+gem "rails",                   "~> 4.2.10"
 gem "aws-sdk",                 "~> 1"
 gem "aws-sdk-resources",       "~> 2"
 gem "pg"
