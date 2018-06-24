@@ -1,17 +1,21 @@
 <%= render "layouts/full_nav_bar" %>
 
 <div>
-  <audio class="clip">
-    <source id="game-clip" src=<%= session[:word]["url"] %>></source>
-  </audio>
-  <a href="#" id="clip-play" class="btn btn-width">Escuchar</a>
-  <p class="big-txt">Elige el significado:</p>
-  <ul class="choices">
-  <% session[:word_list].each do |word| %>
-  <li>
-    <%= button_to word["meaning"], game_path(id: word["id"].to_i,
-      guess: word["meaning"]),
-      { method: :patch, class:"btn btn-width btn-med" } %>
-  </li>
-  <% end %>
+  <% if session[:word].present? %>
+    <audio class="clip">
+      <source id="game-clip" src="<%= session[:word]["url"] %>"></source>
+    </audio>
+    <a href="#" id="clip-play" class="btn btn-width">Escuchar</a>
+    <p class="big-txt">Elige el significado:</p>
+    <ul class="choices">
+    <% session[:word_list].each do |word| %>
+      <li>
+        <%= button_to word["meaning"], game_path(id: word["id"].to_i,
+          guess: word["meaning"]),
+          { method: :patch, class:"btn btn-width btn-med" } %>
+      </li>
+    <% end %>
+    <% else %>
+      Todavía no hay grabaciones para escuchar.
+    <% end %>
 </div>

@@ -14,7 +14,7 @@ gem "i18n",                    "~> 0.7"
 gem "jbuilder",                "~> 2.0"
 gem "jquery-rails",            "~> 4.0.3"
 gem "koala",                   "~> 1.11.1"
-gem "omniauth-facebook",       "~> 4.0.0"
+gem "omniauth-facebook",       "~> 5.0"
 gem "pg"
 gem "responders",              "~> 2.0"
 gem "sass-rails",              "~> 5.0"
@@ -37,7 +37,7 @@ group :development, :test do
   gem "rspec-its"
   gem "rspec-rails"
   gem "rubocop", require: false
-  gem "spring",                "~> 1.3.3"
+  gem "spring",                "~> 1.6"
   gem "spring-commands-rspec", "~> 1.0.4"
 end
 

@@ -1,10 +1,14 @@
 <%= render "layouts/full_nav_bar" %>
 
-<h1>¡Haz clic para escuchar!</h1>
-<div class="table-responsive">
-  <% @uploads.each do |upload| %>
-    <a href="#" class='my-play-button' data='<%= upload.url %>'>
-      <%= upload.meaning %>
-    </a></br>
-  <% end %>
-</div>
+<% if @uploads.any? %>
+  <h1>¡Haz clic para escuchar!</h1>
+  <div class="table-responsive">
+    <% @uploads.each do |upload| %>
+      <a href="#" class='my-play-button' data='<%= upload.url %>'>
+        <%= upload.meaning %>
+      </a></br>
+    <% end %>
+  </div>
+<% else %>
+  Todavía no hay grabaciones para escuchar.
+<% end %>
