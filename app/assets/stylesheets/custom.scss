@@ -1,44 +1,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$light-gray: #777;
-$orange: #F25204;
-$dark-blue: #093D5E;
-$brown: #5C2D22;
-$light-brown: #9E4D0B;
-$tan: #E7CE9F;
+$dark-blue: #0A173D;
 $purple: #800080;
-$white: #fff;
-$black: #000;
-
-// From adobe https://color.adobe.com/Theme-20-color-theme-5544017/
-$grey: #D9C7C1;
-$yellow: #F2CA50;
-$orange-yellow: #F2994B;
-$adobe-orage: #F27B35;
-$green: #344021;
-
-// https://color.adobe.com/Old-Orange-Peel-color-theme-448736/
-$dark-brown1: #382500;
-$red1: #992200;
-
-// https://color.adobe.com/Infographics-6-color-theme-5378443/
-$dark-blue2: #314655;
-$orange2: #F58625;
 $red2: #F05026;
-$cyan2: #31BDC1;
-
-html {
-  background-color: $dark-blue2;
-}
+$white: #fff;
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding-top: 150px;
   margin: 0 -35px;
-  color: $orange2;
+  color: black;
   align-top: center;
-  background-color: $dark-blue2;
+}
+
+.t--dark-blue {
+  color: $dark-blue;
+}
+
+.t--white {
+  color: $white;
+}
+
+.bg--dark-blue {
+  background-color: $dark-blue;
 }
 
 .container {
@@ -66,7 +51,7 @@ li {
 }
 
 .navbar {
-  background: $brown;
+  background: $dark-blue;
   font-size: 38px;
 }
 
@@ -97,9 +82,8 @@ a.nav-list-item {
   margin: -5px;
 }
 
-li.active > a
-{
-  background-color: $brown !important;
+li.active > a {
+  background-color: $dark-blue !important;
 }
 
 tr {
@@ -111,15 +95,16 @@ tr {
 }
 
 .btn {
-  border: 0.5vw solid $orange2;
+  border: 1px solid black;
   color: $white;
   font-size: 1.5em;
   text-decoration: none;
-  background-color: $dark-blue2;
+  background-color: $dark-blue;
 }
 
 .btn:hover {
-  background: $orange2;
+  background: lighten($dark-blue, 10);//$orange2;
+  color: $white;
 }
 
 .btn-width {
@@ -127,9 +112,8 @@ tr {
   padding: 5px 5px;
   font-size: 5em;
   margin: 35px 0;
-  letter-spacing: 0.5vw;
+  letter-spacing: 1px;
   text-decoration: none;
-  background-color: $dark-blue2;
 }
 
 .btn-med {
@@ -145,7 +129,7 @@ tr {
 }
 
 .btn-danger {
-  border: 0.5vw solid $red2;
+  border: 1px solid $red2;
 }
 
 .btn-danger:hover {
@@ -176,33 +160,22 @@ tr {
   padding: 15px;
 }
 
-.txt-box {
-  background-color: $white;
-}
-
-.txt-box:hover {
-  background-color: $white;
-}
-
 .my-play-button {
-  color: $white;
+  color: $dark-blue;
 }
 
 .my-play-button:focus,
 .my-play-button:hover {
-  color: $orange2;
   text-decoration: none;
 }
 
 progress {
-  background-color: $white;
   border: 0;
   height: 30px;
   border-radius: 9px;
 }
 
 .flash-messages {
-  color: $white;
   font-size: 1.5em;
   margin-bottom: 50px;
 }
