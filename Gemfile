@@ -37,7 +37,7 @@ group :development, :test do
   gem "rspec-its"
   gem "rspec-rails"
   gem "rubocop", require: false
-  gem "spring",                "~> 1.3.3"
+  gem "spring",                "~> 1.6"
   gem "spring-commands-rspec", "~> 1.0.4"
 end
 
