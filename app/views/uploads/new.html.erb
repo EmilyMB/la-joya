@@ -4,14 +4,14 @@
 <p id="warning" hidden=true>Favor de usar Chrome, actualizar la página
                             y permitir el uso del micrófono</p>
 <ul id="recordingslist"></ul>
-<progress id="progressbar" value="0" max="100" hidden=true></progress>
-<h1 class="progress-value big-text" hidden=true></h1>
+<progress id="progressbar" value="0" max="100" hidden="true"></progress>
+<h1 class="progress-value big-text" hidden="true"></h1>
 
-<div id="meaning" hidden=true>
+<div id="meaning" hidden="true">
   <%=form_tag(add_meaning_path("1"), method: "patch") do %>
     <%= text_field_tag :meaning, nil,
                        placeholder: "significado",
-                       class: "btn btn-width txt-box" %></br>
+                       class: "btn-width txt-box" %></br>
     <p><%= submit_tag "Guardar", class:"btn btn-width" %></p>
     <p><%= link_to "Cancelar", remove_upload_path, { method: :delete, class:"btn btn-width" } %>
   <% end %>
