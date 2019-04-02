@@ -19,7 +19,7 @@ gem "pg"
 gem "responders",              "~> 2.0"
 gem "sass-rails",              "~> 5.0"
 gem "therubyracer",            "~> 0.12"
-gem "twitter-bootstrap-rails", "~> 3.2"
+gem "twitter-bootstrap-rails", "~> 4.0"
 gem "uglifier",                ">= 1.3.0"
 
 gem "web-console",           "~> 2.0", group: :development
